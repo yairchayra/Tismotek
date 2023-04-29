@@ -1,0 +1,20 @@
+.social-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFA559;
+    height: 60px;
+    padding-left: 30px;
+  }
+
+  .social-nav a {
+    margin-right: 10px;
+  }
+
+  .social-nav img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    filter: invert(18%) sepia(8%) saturate(7466%) hue-rotate(209deg) brightness(93%) contrast(92%);
+    /* logo text color :#2c2f66 */
+    }
