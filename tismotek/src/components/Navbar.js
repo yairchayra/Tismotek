@@ -15,7 +15,7 @@ function Navbar(){
             <ul className="nav-links">
                 <CustomLink to="/donations">תרומה</CustomLink>
                 <CustomLink to="/contacts">צור קשר</CustomLink>
-                <CustomLink to="/events">תוכניות</CustomLink>
+                <CustomLink to="/events">פעילויות</CustomLink>
                 <CustomLink to="/projects">פרוייקטים</CustomLink>
                 <CustomLink to="/about"> אודות תסמותק</CustomLink>
                 <CustomLink to="/">דף הבית</CustomLink>
