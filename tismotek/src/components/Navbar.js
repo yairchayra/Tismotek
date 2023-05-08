@@ -8,7 +8,7 @@ function Navbar(){
 
             <div className="logo-container">
             <Link to="/">
-            <img src={logo} alt="Logo" />
+            <img src={logo} alt="Logo" title='דף הבית' />
             </Link>
             </div>
 
