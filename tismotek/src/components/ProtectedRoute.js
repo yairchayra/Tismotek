@@ -8,6 +8,7 @@ const ProtectedRoute = ({ children }) => {
   if (!user) {
     return <Navigate to="/" />;
   }
+  console.log("im logout");
   return children;
 };
 
