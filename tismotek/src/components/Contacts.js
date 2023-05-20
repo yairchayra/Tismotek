@@ -1,6 +1,5 @@
 import './Contacts.css';
 import emailjs from 'emailjs-com';
-import { Button } from 'react-bootstrap';
 emailjs.init('CAfLe4anS8INvMHrB');
 
 function Contacts() {
@@ -30,16 +29,16 @@ function Contacts() {
                 alert("הודעתך נשלחה בהצלחה");
             })
             .catch((err)=> console.log(err));
-    
+
     }
 
-    return (   
+    return (
         <div className="container border mt-3 bg-light">
             <div className="row">
                 <div className="col -md-6 p-5 custom-social-orange text-white">
                     <h4 style={{ color: "darkblue" }}>
                         טלפון העמותה :
-                        מייל : 
+                        מייל :
                         כתובת :
                     </h4>
                 </div>
@@ -71,7 +70,7 @@ function Contacts() {
 
                 </div>
             </div>
-            
+
         </div>
     );
 }

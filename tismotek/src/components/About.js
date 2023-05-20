@@ -28,7 +28,10 @@ const About = () => {
         <div className="about__image">
         <img src={aboutData.imageUrl} alt="About" />
       </div>
-      <div className="about__text">{aboutData.text}</div>
+      <div className="about__text">
+        <h2>אודות תסמותק</h2>
+        {aboutData.text}
+        </div>
 
     </div>
   );

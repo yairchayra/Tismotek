@@ -1,14 +1,17 @@
 .about {
     display: flex;
-    align-items: center;
+
   }
 
   .about__text {
-    text-align: center;
-    background-color: brown;
+    margin-left: auto;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 20px;
   }
 
   .about__image {
+    align-items: center;
     flex: 0 0 auto;
     margin-right: 20px; /* Adjust the margin as desired */
     width: 500px;
@@ -16,6 +19,7 @@
   }
 
   .about__image img {
+
     display: block;
     max-width: 100%;
     height: auto;
