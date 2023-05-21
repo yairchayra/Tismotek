@@ -2,7 +2,8 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
-import './Dashboard.css'
+import DataManagment from './DataManagment';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const { logOut, user } = useUserAuth();
@@ -21,6 +22,7 @@ const Dashboard = () => {
         Welcome Admin <br />
         {user && user.email}
       </div>
+      <DataManagment/>
       <div className="logout-con">
         <Button variant="primary" onClick={handleLogout}>
           Log out
