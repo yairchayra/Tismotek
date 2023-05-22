@@ -5,6 +5,7 @@ import { db, auth, storage } from '../firebase';
 import { collection, getDocs, updateDoc, doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
 
+
 function Projects() {
     const [projectData, setProjectData] = useState([]);
     const [editedData, setEditedData] = useState({});
@@ -153,7 +154,7 @@ function Projects() {
                                 <>
                                     <h3>
                                         {isEditing ? (
-                                            <input
+                                            <input class="form-control"
                                                 type="text"
                                                 name="header"
                                                 value={editedData.header || project.header}
@@ -165,7 +166,7 @@ function Projects() {
                                     </h3>
                                     <p>
                                         {isEditing ? (
-                                            <textarea
+                                            <textarea class="form-control"
                                                 name="text"
                                                 value={editedData.text || project.text}
                                                 onChange={handleInputChange}
@@ -176,7 +177,7 @@ function Projects() {
                                     </p>
                                     {isEditing ? (
                                         <div>
-                                            <input
+                                            <input class="form-control"
                                                 type="file"
                                                 accept="image/png, image/jpeg"
                                                 onChange={(e) => handleImageFileChange(e.target.files[0], projectData.length + 1)}
@@ -186,7 +187,7 @@ function Projects() {
                                         </div>
                                     ) : (
                                         <>
-                                            <button onClick={() => setIsEditing(true)}>Edit</button>
+                                            <button  onClick={() => setIsEditing(true)}>Edit</button>
                                             {'    '}
 
                                             <button onClick={() => handleDelete(project.id, project.imageUrl)}>Delete</button> {/* Add delete button */}
@@ -211,20 +212,20 @@ function Projects() {
                     )}
                     {isNewProject && (
                         <>
-                            <input
+                            <input class="form-control"
                                 type="text"
                                 name="header"
                                 placeholder="Header"
                                 value={newProjectData.header || ''}
                                 onChange={handleInputChange}
                             />
-                            <textarea
+                            <textarea class="form-control"  rows="3"
                                 name="text"
                                 placeholder="Text"
                                 value={newProjectData.text || ''}
                                 onChange={handleInputChange}
                             />
-                            <input
+                            <input class="form-control"
                                 type="file"
                                 accept="image/png, image/jpeg"
                                 onChange={(e) => {

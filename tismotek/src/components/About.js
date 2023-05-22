@@ -88,7 +88,7 @@ const About = () => {
     <div className="about">
       <div className="about__image">
         {isEditing ? (
-          <input
+          <input class="form-control"
             type="file"
             accept="image/png, image/jpeg"
             onChange={handleImageFileChange}
@@ -99,7 +99,7 @@ const About = () => {
       </div>
       <div className="about__text">
         {isEditing ? (
-          <textarea
+          <textarea class="form-control"
             value={editedText}
             onChange={(e) => setEditedText(e.target.value)}
           />
