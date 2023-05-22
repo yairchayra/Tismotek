@@ -25,7 +25,7 @@ const Dashboard = () => {
       <DataManagment/>
       <div className="logout-con">
         <Button variant="primary" onClick={handleLogout}>
-          Log out
+          התנתק
         </Button>
       </div>
     </div>
