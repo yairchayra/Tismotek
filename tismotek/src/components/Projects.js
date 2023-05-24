@@ -154,7 +154,7 @@ function Projects() {
                                 <>
                                     <h3>
                                         {isEditing ? (
-                                            <input class="form-control"
+                                            <input className="form-control"
                                                 type="text"
                                                 name="header"
                                                 value={editedData.header || project.header}
@@ -166,7 +166,7 @@ function Projects() {
                                     </h3>
                                     <p>
                                         {isEditing ? (
-                                            <textarea class="form-control"
+                                            <textarea className="form-control"
                                                 name="text"
                                                 value={editedData.text || project.text}
                                                 onChange={handleInputChange}
@@ -177,7 +177,7 @@ function Projects() {
                                     </p>
                                     {isEditing ? (
                                         <div>
-                                            <input class="form-control"
+                                            <input className="form-control"
                                                 type="file"
                                                 accept="image/png, image/jpeg"
                                                 onChange={(e) => handleImageFileChange(e.target.files[0], projectData.length + 1)}
@@ -212,20 +212,21 @@ function Projects() {
                     )}
                     {isNewProject && (
                         <>
-                            <input class="form-control"
+                            <input className="form-control"
                                 type="text"
                                 name="header"
-                                placeholder="Header"
+                                placeholder="כותרת הפרוייקט ( זהו שדה חובה )"
                                 value={newProjectData.header || ''}
                                 onChange={handleInputChange}
+                                required
                             />
-                            <textarea class="form-control"  rows="3"
+                            <textarea className="form-control"  rows="3"
                                 name="text"
-                                placeholder="Text"
+                                placeholder="תוכן הפרוייקט ( זהו שדה חובה )"
                                 value={newProjectData.text || ''}
                                 onChange={handleInputChange}
                             />
-                            <input class="form-control"
+                            <input className="form-control"
                                 type="file"
                                 accept="image/png, image/jpeg"
                                 onChange={(e) => {

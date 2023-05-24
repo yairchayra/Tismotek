@@ -88,26 +88,13 @@ const About = () => {
     <div className="about">
       <div className="about__image">
         {isEditing ? (
-          <input class="form-control"
+          <input className="form-control"
             type="file"
             accept="image/png, image/jpeg"
             onChange={handleImageFileChange}
           />
         ) : (
           <img src={aboutData.imageUrl} alt="About" />
-        )}
-      </div>
-      <div className="about__text">
-        {isEditing ? (
-          <textarea class="form-control"
-            value={editedText}
-            onChange={(e) => setEditedText(e.target.value)}
-          />
-        ) : (
-          <>
-            <h2>אודות תסמותק</h2>
-            {aboutData.text}
-          </>
         )}
       </div>
       <div className="about__buttons">
@@ -120,6 +107,20 @@ const About = () => {
           auth.currentUser && <button onClick={handleEdit}>Edit</button>
         )}
       </div>
+      <div className="about__text">
+        {isEditing ? (
+          <textarea className="form-control"
+            value={editedText}
+            onChange={(e) => setEditedText(e.target.value)}
+          />
+        ) : (
+          <>
+            <h2>אודות תסמותק</h2>
+            {aboutData.text}
+          </>
+        )}
+      </div>
+
     </div>
   );
 };
