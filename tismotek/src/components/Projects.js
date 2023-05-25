@@ -50,7 +50,6 @@ function Projects() {
 
     const handleEdit = async (projectId, updatedData) => {
         try {
-            console.log(updatedData);
             await updateDoc(doc(db, 'projects', projectId), updatedData);
             console.log('Project updated successfully!');
             setIsEditing(false);
