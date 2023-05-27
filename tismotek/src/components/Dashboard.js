@@ -2,7 +2,8 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
-import DataManagment from './DataManagment';
+
+import { Link } from "react-router-dom";
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -22,7 +23,11 @@ const Dashboard = () => {
         Welcome Admin <br />
         {user && user.email}
       </div>
-      <DataManagment/>
+      <div className="logo-container">
+        <Link to="/">
+          Home
+        </Link>
+      </div>
       <div className="logout-con">
         <Button variant="primary" onClick={handleLogout}>
           התנתק
