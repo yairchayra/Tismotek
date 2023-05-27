@@ -4,7 +4,7 @@ import {  Link,useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
-import logo from '../logos/logo.png'
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +31,7 @@ const Login = () => {
       <div className="p-4 box">
       <div className="logo-container">
             <Link to="/">
-            <img src={logo} alt="Logo" title='דף הבית' />
+            <img src='https://firebasestorage.googleapis.com/v0/b/tismotek-jce-23.appspot.com/o/logos%2Flogo.png?alt=media&token=7e40d507-1ba8-4ddb-9e75-4f172df2f5d0' alt="Logo" title='דף הבית' />
             </Link>
             </div>
 
