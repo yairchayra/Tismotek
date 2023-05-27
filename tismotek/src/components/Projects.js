@@ -14,7 +14,7 @@ function Projects() {
     const [newProjectData, setNewProjectData] = useState({}); // Added state for new project
     const [missingNumber, setMissingNumber] = useState(null);
 
-      // Fetch project data from Firestore
+    // Fetch project data from Firestore
     const fetchProjectData = async () => {
         try {
             const querySnapshot = await getDocs(collection(db, 'projects'));
@@ -30,13 +30,13 @@ function Projects() {
             for (let i = 0; i < lastCharsAsNumbers.length - 1; i++) {
                 const diff = lastCharsAsNumbers[i + 1] - lastCharsAsNumbers[i];
                 if (diff > 1) {
-                  setMissingNumber(lastCharsAsNumbers[i] + 1);
-                  break;
+                    setMissingNumber(lastCharsAsNumbers[i] + 1);
+                    break;
                 }
-                if(i===lastCharsAsNumbers.length - 2){
+                if (i === lastCharsAsNumbers.length - 2) {
                     setMissingNumber(null);
                 }
-              }
+            }
             console.log(lastCharsAsNumbers);
             setProjectData(projects);
         } catch (error) {
@@ -45,7 +45,7 @@ function Projects() {
     };
 
     useEffect(() => {
-            fetchProjectData();
+        fetchProjectData();
     }, []);
 
     const handleEdit = async (projectId, updatedData) => {
@@ -100,6 +100,13 @@ function Projects() {
                 (snapshot) => {
                     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     console.log("Upload progress: " + progress.toFixed(2) + "%");
+                    // Update the progress bar element
+                    const progressBar = document.getElementById("uploadProgress");
+                    progressBar.value = progress;
+
+                    // Update the percentage display
+                    const percentageText = document.getElementById("uploadPercentage");
+                    percentageText.innerText = progress.toFixed(2) + "%";
                 },
                 (error) => {
                     console.log("Error uploading file:", error);
@@ -128,17 +135,20 @@ function Projects() {
         }
     };
     const handleDelete = async (projectId, imageUrl) => {
-        try {
-            // Delete image from storage
-            const storageRef = ref(storage, imageUrl);
-            await deleteObject(storageRef);
+        const shouldDelete = window.confirm('Are you sure you want to delete this project?');
+        if (shouldDelete) {
+            try {
+                // Delete image from storage
+                const storageRef = ref(storage, imageUrl);
+                await deleteObject(storageRef);
 
-            // Delete document from Firestore
-            await deleteDoc(doc(db, 'projects', projectId));
-            console.log('Project and image deleted successfully!');
-            fetchProjectData();
-        } catch (error) {
-            console.error('Error deleting project and image:', error);
+                // Delete document from Firestore
+                await deleteDoc(doc(db, 'projects', projectId));
+                console.log('Project and image deleted successfully!');
+                fetchProjectData();
+            } catch (error) {
+                console.error('Error deleting project and image:', error);
+            }
         }
     };
 
@@ -181,12 +191,14 @@ function Projects() {
                                                 accept="image/png, image/jpeg"
                                                 onChange={(e) => handleImageFileChange(e.target.files[0], projectData.length + 1)}
                                             />
+                                            <span id="uploadPercentage">0%</span>
+                                            <progress id="uploadProgress" value="0" max="100"></progress>
                                             <button onClick={() => handleSave(project.id)}>Save</button>
                                             <button onClick={handleCancel}>Cancel</button>
                                         </div>
                                     ) : (
                                         <>
-                                            <button  onClick={() => setIsEditing(true)}>Edit</button>
+                                            <button onClick={() => setIsEditing(true)}>Edit</button>
                                             {'    '}
 
                                             <button onClick={() => handleDelete(project.id, project.imageUrl)}>Delete</button> {/* Add delete button */}
@@ -219,7 +231,7 @@ function Projects() {
                                 onChange={handleInputChange}
                                 required
                             />
-                            <textarea className="form-control"  rows="3"
+                            <textarea className="form-control" rows="3"
                                 name="text"
                                 placeholder="תוכן הפרוייקט ( זהו שדה חובה )"
                                 value={newProjectData.text || ''}
@@ -232,10 +244,14 @@ function Projects() {
                                     if (missingNumber !== null) {
                                         handleImageFileChange(e.target.files[0], missingNumber);
                                     } else {
-                                      handleImageFileChange(e.target.files[0], projectData.length + 1);
+                                        handleImageFileChange(e.target.files[0], projectData.length + 1);
                                     }
-                                  }}
+                                }}
                             />
+                            <div className='progress_data'>
+                                <span id="uploadPercentage">0%</span>
+                                <progress id="uploadProgress" value="0" max="100"></progress>
+                            </div>
                             <button onClick={() => handleSave()}>Save New Project</button>
                             <button onClick={() => setIsNewProject(false)}>Cancel</button>
                         </>

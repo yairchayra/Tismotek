@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { db, auth ,storage} from '../firebase';
+import { db, auth, storage } from '../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import './About.css';
 
@@ -52,10 +52,7 @@ const About = () => {
   const handleImageFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const fileName = file.name;
-      const fileExtension = fileName.split('.').pop().toLowerCase();
-      let newFileName="about";
-      const storageRef = ref(storage,`${newFileName}.${fileExtension}`);
+      const storageRef = ref(storage, `about.png`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
@@ -63,6 +60,14 @@ const About = () => {
         (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload progress: " + progress.toFixed(2) + "%");
+          // Update the progress bar element
+          const progressBar = document.getElementById("uploadProgress");
+          progressBar.value = progress;
+
+          // Update the percentage display
+          const percentageText = document.getElementById("uploadPercentage");
+          percentageText.innerText = progress.toFixed(2) + "%";
+
         },
         (error) => {
           console.log("Error uploading file:", error);
@@ -88,11 +93,16 @@ const About = () => {
     <div className="about">
       <div className="about__image">
         {isEditing ? (
-          <input className="form-control"
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={handleImageFileChange}
-          />
+          <>
+            <img src={aboutData.imageUrl} alt="About" />
+            <input className="form-control"
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={handleImageFileChange}
+            />
+            <span id="uploadPercentage">0%</span>
+            <progress id="uploadProgress" value="0" max="100"></progress>
+          </>
         ) : (
           <img src={aboutData.imageUrl} alt="About" />
         )}

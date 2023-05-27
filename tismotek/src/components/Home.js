@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import YouTube from 'react-youtube';
 import './Home.css';
+import  HorizontalCard from './HorizontalCard'
 
 function Home() {
   const [topData, setTopData] = useState(null);
@@ -45,11 +46,11 @@ function Home() {
 
   useEffect(() => {
     if (homeData.length > 0) {
-      setTopData(homeData[3]);
+      setTopData(homeData[4]);
       setEventsData(homeData[0]);
-      setProjectsData(homeData[2]);
+      setProjectsData(homeData[3]);
       setMagazineData(homeData[1]);
-      setYoutubeData(homeData[4]);
+      setYoutubeData(homeData[5]);
     }
   }, [homeData]);
 
@@ -196,6 +197,13 @@ function Home() {
                 (snapshot) => {
                     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     console.log("Upload progress: " + progress.toFixed(2) + "%");
+                    // Update the progress bar element
+                    const progressBar = document.getElementById("uploadProgress");
+                    progressBar.value = progress;
+
+                    // Update the percentage display
+                    const percentageText = document.getElementById("uploadPercentage");
+                    percentageText.innerText = progress.toFixed(2) + "%";
                 },
                 (error) => {
                     console.log("Error uploading file:", error);
@@ -238,6 +246,8 @@ function Home() {
             accept="image/png, image/jpeg"
             onChange={(e) =>handleImageFileChange(e.target.files[0],'top')}
           />
+           <span id="uploadPercentage">0%</span>
+                        <progress id="uploadProgress" value="0" max="100"></progress>
             <input
               type="text"
               value={editedTopData?.text}
@@ -297,6 +307,8 @@ function Home() {
                 accept="image/png, image/jpeg"
                 onChange={(e) =>handleImageFileChange(e.target.files[0],'events')}
             />
+             <span id="uploadPercentage">0%</span>
+                        <progress id="uploadProgress" value="0" max="100"></progress>
 
               <input
                 type="text"
@@ -330,6 +342,8 @@ function Home() {
                 accept="image/png, image/jpeg"
                 onChange={(e) =>handleImageFileChange(e.target.files[0],'projects')}
             />
+             <span id="uploadPercentage">0%</span>
+                        <progress id="uploadProgress" value="0" max="100"></progress>
               <input
                 type="text"
                 value={editedProjectsData?.text}
@@ -370,6 +384,8 @@ function Home() {
                 accept=".pdf"
                 onChange={(e) =>handleImageFileChange(e.target.files[0],'magazine')}
             />
+             <span id="uploadPercentage">0%</span>
+                        <progress id="uploadProgress" value="0" max="100"></progress>
             <button onClick={handleSaveMagazine}>Save</button>
             <button onClick={handleCancelMagazine}>Cancel</button>
           </div>
@@ -384,6 +400,7 @@ function Home() {
           </div>
         )}
       </div>
+      <HorizontalCard/>
     </div>
   );
 }

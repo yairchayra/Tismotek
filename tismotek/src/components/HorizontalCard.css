@@ -1,0 +1,36 @@
+.horizontal-card {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: right;
+}
+.toExpand {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+  top: -10px;
+  left: 10px;
+  }
+
+  .horizontal-card-image {
+    flex: 0 0 auto;
+    margin-left: 20px;
+  }
+
+  .horizontal-card-image img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .horizontal-card-body {
+    flex: 1 1 auto;
+  }
+
+  .expanded {
+    white-space: normal;
+    overflow: visible;
+    height: auto;
+  }
+
+

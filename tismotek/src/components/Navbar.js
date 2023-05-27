@@ -1,5 +1,4 @@
 import './Navbar.css'
-import logo from '../logos/logo.png'
 import {Link,useMatch, useResolvedPath} from "react-router-dom"
 
 function Navbar(){
@@ -8,7 +7,7 @@ function Navbar(){
 
             <div className="logo-container">
             <Link to="/">
-            <img src={logo} alt="Logo" title='דף הבית' />
+            <img src='https://firebasestorage.googleapis.com/v0/b/tismotek-jce-23.appspot.com/o/logos%2Flogo.png?alt=media&token=7e40d507-1ba8-4ddb-9e75-4f172df2f5d0' alt="Logo" title='דף הבית' />
             </Link>
             </div>
 

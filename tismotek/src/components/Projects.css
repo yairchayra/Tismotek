@@ -45,4 +45,8 @@ input, textarea {
   text-align: right;
   margin-bottom: 5px;
 }
-
+.progress_data{
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
