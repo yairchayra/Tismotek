@@ -45,26 +45,26 @@ function Contacts() {
                 <div className="col -md-6 py-3">
                     <h1>טופס יצירת קשר</h1>
                     <div className="form-group">
-                        <h5 for="name">:שם</h5>
+                        <h5 htmlFor="name">:שם</h5>
                         <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id="name"
                             placeholder="הכנס את שמך"
                         />
                     </div>
                     <div className="form-group">
-                        <h5 for="email">:כתובת מייל</h5>
+                        <h5 htmlFor="email">:כתובת מייל</h5>
                         <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id="email"
                             placeholder="הכנס כתובת מייל"
                         />
                     </div>
                     <div className="form-group">
-                        <h5 for="message">:הודעה</h5>
-                        <textarea id="message" rows="3" class="form-control"></textarea>
+                        <h5 htmlFor="message">:הודעה</h5>
+                        <textarea id="message" rows="3" className="form-control"></textarea>
                     </div>
                     <button className="btn" onClick={sendMail} style={{backgroundColor: "#1E3A8A", color: "#fff"}}>שלח</button>
 

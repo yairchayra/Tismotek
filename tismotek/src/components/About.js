@@ -52,7 +52,7 @@ const About = () => {
   const handleImageFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const storageRef = ref(storage, `about.png`);
+      const storageRef = ref(storage, `about-page/about.png`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(

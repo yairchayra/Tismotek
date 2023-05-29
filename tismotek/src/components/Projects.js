@@ -13,6 +13,7 @@ function Projects() {
     const [isNewProject, setIsNewProject] = useState(false); // Added state for new project
     const [newProjectData, setNewProjectData] = useState({}); // Added state for new project
     const [missingNumber, setMissingNumber] = useState(null);
+    const [editingProjectId, setEditingProjectId] = useState(null);
 
     // Fetch project data from Firestore
     const fetchProjectData = async () => {
@@ -22,9 +23,6 @@ function Projects() {
                 id: doc.id,
                 ...doc.data(),
             }));
-            projects.forEach((project) => {
-                console.log(project.id);
-            });
             // Map the last character of each document ID to a number and save it in the array
             const lastCharsAsNumbers = projects.map((project) => parseInt(project.id.slice(-1), 10));
             for (let i = 0; i < lastCharsAsNumbers.length - 1; i++) {
@@ -37,7 +35,6 @@ function Projects() {
                     setMissingNumber(null);
                 }
             }
-            console.log(lastCharsAsNumbers);
             setProjectData(projects);
         } catch (error) {
             console.error('Error fetching project data:', error);
@@ -53,6 +50,7 @@ function Projects() {
             await updateDoc(doc(db, 'projects', projectId), updatedData);
             console.log('Project updated successfully!');
             setIsEditing(false);
+            setEditingProjectId(projectId); // Set the editing project I
         } catch (error) {
             console.error('Error updating project:', error);
         }
@@ -60,6 +58,7 @@ function Projects() {
 
     const handleCancel = () => {
         setIsEditing(false);
+        setEditingProjectId(null); // Set the editing
         setEditedData({});
     };
 
@@ -79,6 +78,7 @@ function Projects() {
             handleEdit(projectId, editedData);
         }
         setEditedData({});
+        setEditingProjectId(null); // Set the editing
         setNewProjectData({});
     };
 
@@ -92,7 +92,7 @@ function Projects() {
     };
     const handleImageFileChange = (file, projectId) => {
         if (file) {
-            const storageRef = ref(storage, `project${projectId}.png`);
+            const storageRef = ref(storage, `projects-page/project${editingProjectId !== null ? editingProjectId : projectId}.png`);
             const uploadTask = uploadBytesResumable(storageRef, file);
 
             uploadTask.on(
@@ -190,6 +190,7 @@ function Projects() {
                                                 type="file"
                                                 accept="image/png, image/jpeg"
                                                 onChange={(e) => handleImageFileChange(e.target.files[0], projectData.length + 1)}
+                                                // check what is the number of the project i am editing
                                             />
                                             <span id="uploadPercentage">0%</span>
                                             <progress id="uploadProgress" value="0" max="100"></progress>

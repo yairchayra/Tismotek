@@ -64,7 +64,7 @@ const HorizontalCard = () => {
     const handleImageFileChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            const storageRef = ref(storage, `personalLetter.png`);
+            const storageRef = ref(storage, `home-page/personalLetter.png`);
             const uploadTask = uploadBytesResumable(storageRef, file);
             uploadTask.on(
                 "state_changed",

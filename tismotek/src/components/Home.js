@@ -189,7 +189,7 @@ function Home() {
             else if(type==='magazine'){
                 newFileName='מהורה להורה - קטן.pdf';
             }
-            const storageRef = ref(storage,`${newFileName}`);
+            const storageRef = ref(storage,`home-page/${newFileName}`);
             const uploadTask = uploadBytesResumable(storageRef, file);
 
             uploadTask.on(
@@ -288,7 +288,7 @@ function Home() {
                 width: '100%',
                 height: '280',
                 playerVars: {
-                    origin: 'http://localhost:3000', // Set the origin to your application's URL
+                    origin: 'https://localhost:3000', // Set the origin to your application's URL
                   }
               }}/>
                 )}
