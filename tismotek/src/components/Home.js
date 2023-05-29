@@ -46,11 +46,27 @@ function Home() {
 
   useEffect(() => {
     if (homeData.length > 0) {
-      setTopData(homeData[4]);
-      setEventsData(homeData[0]);
-      setProjectsData(homeData[3]);
-      setMagazineData(homeData[1]);
-      setYoutubeData(homeData[5]);
+      homeData.forEach((item) => {
+        switch (item.id) {
+          case 'top':
+            setTopData(item);
+            break;
+          case 'events':
+            setEventsData(item);
+            break;
+          case 'projects':
+            setProjectsData(item);
+            break;
+          case 'magazine':
+            setMagazineData(item);
+            break;
+          case 'youtube':
+            setYoutubeData(item);
+            break;
+          default:
+            break;
+        }
+      });
     }
   }, [homeData]);
 

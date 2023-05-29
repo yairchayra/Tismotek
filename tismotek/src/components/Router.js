@@ -9,6 +9,8 @@ import Events from './Events';
 import Contacts from './Contacts';
 import Donations from './Donations';
 import ProtectedRoute from "./ProtectedRoute";
+import SignUpForm from './SignUpForm';
+import AddEvent from './AddEvent';
 import { UserAuthContextProvider } from "../context/UserAuthContext";
 import {Outlet, Route,Routes} from "react-router-dom"
 import Dashboard from './Dashboard';
@@ -36,6 +38,8 @@ function Router() {
         <Route path='/events' element={<Events/>}></Route>
         <Route path='/contacts' element={<Contacts/>}></Route>
         <Route path='/donations' element={<Donations/>}></Route>
+        <Route exact path="/events/signup/:eventId" element={<SignUpForm/>} ></Route>
+        <Route exact path="/events/add" element={<AddEvent />} />
         </Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
