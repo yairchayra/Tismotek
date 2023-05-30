@@ -143,13 +143,13 @@ function Socialnav() {
             />
           </a>
           {auth.currentUser && (
-            <button   class="btn btn-secondary" onClick={handleEdit}>
+            <button   className="btn btn-secondary" onClick={handleEdit}>
               {editMode ? 'Editing...' : 'ערוך קישורים'}
             </button>
           )}
           {auth.currentUser && (
             <Link to="/dashboard" >
-              <button class="btn btn-secondary">
+              <button className="btn btn-secondary">
               לאזור האישי
               </button>
               </Link>
