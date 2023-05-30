@@ -1,0 +1,16 @@
+.admin-layout-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px; /* Adjust the width of the sidebar as needed */
+  background-color: #f1f1f1; /* Sidebar background color */
+  margin-left: 20px; /* Add margin to create space between sidebar and content */
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  padding-right: 300px;
+
+}

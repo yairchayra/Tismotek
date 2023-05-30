@@ -1,0 +1,19 @@
+.socialData-container {
+    text-align: right;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .table-container {
+    width: 50%;
+    float: right;
+  }
+
+  .chart-container {
+    width: 400px;
+    height: 400px;
+  }

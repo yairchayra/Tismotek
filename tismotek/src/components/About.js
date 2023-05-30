@@ -76,7 +76,7 @@ const About = () => {
           console.log("File uploaded successfully");
           getDownloadURL(uploadTask.snapshot.ref)
             .then((url) => {
-              setEditedImageUrl(aboutData.imageUrl);
+              setEditedImageUrl(url);
             })
             .catch((error) => {
               console.log("Error getting download URL:", error);
@@ -110,11 +110,11 @@ const About = () => {
       <div className="about__buttons">
         {isEditing ? (
           <>
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleCancel}>Cancel</button>
+            <button onClick={handleSave}>שמור</button>
+            <button onClick={handleCancel}>בטל</button>
           </>
         ) : (
-          auth.currentUser && <button onClick={handleEdit}>Edit</button>
+          auth.currentUser && <button onClick={handleEdit}>ערוך</button>
         )}
       </div>
       <div className="about__text">

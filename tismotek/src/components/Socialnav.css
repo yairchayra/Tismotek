@@ -18,3 +18,7 @@
     filter: invert(18%) sepia(8%) saturate(7466%) hue-rotate(209deg) brightness(93%) contrast(92%);
     /* logo text color :#2c2f66 */
     }
+    .btn{
+      margin-right: 10px;
+      color: black;
+    }

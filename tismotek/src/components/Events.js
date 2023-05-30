@@ -5,6 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebas
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SignUpForm from './SignUpForm';
 import { useNavigate } from 'react-router-dom';
+import './Events.css'
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -127,24 +128,24 @@ function Events() {
     navigate('/events/add');
   };
   return (
-    <div>
-      <h1>Events</h1>
+    <div className='events-container'>
+      <h1>פעילויות</h1>
       {auth.currentUser && (
         <div>
-          <button onClick={handleAddEvent}>Add Event</button>
+          <button onClick={handleAddEvent}>הוסף פעילות</button>
         </div>
       )}
       <table className="table">
         <thead>
           <tr>
-            <th>Actions</th>
-            <th>File</th>
-            <th>Description</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Title</th>
-            {auth.currentUser && <th>Max Participants</th>}
-            {auth.currentUser && <th>Number of Participants</th>}
+            <th>פעולות</th>
+            <th>קובץ מצורף</th>
+            <th>תיאור</th>
+            <th>תאריך ושעה</th>
+            <th>מיקום</th>
+            <th>כותרת</th>
+            {auth.currentUser && <th>מספר משתתפים מקסימלי</th>}
+            {auth.currentUser && <th>מספר משתתפים רשומים</th>}
           </tr>
         </thead>
         <tbody>
@@ -155,10 +156,10 @@ function Events() {
                   // Edit mode
                   <div>
                     <button className="btn btn-primary" onClick={handleSave}>
-                      Save
+                      שמור
                     </button>
                     <button className="btn btn-secondary" onClick={handleCancel}>
-                      Cancel
+                      בטל
                     </button>
                   </div>
                 ) : (
@@ -167,10 +168,10 @@ function Events() {
                     {auth.currentUser ? (
                       <>
                         <button className="btn btn-primary" onClick={() => handleEdit(event)}>
-                          Edit
+                          ערוך פעילות
                         </button>
                         <button className="btn btn-danger" onClick={() => handleDelete(event)}>
-                          Delete
+                        מחק פעילות
                         </button>
                       </>
                     ) : (
@@ -179,7 +180,7 @@ function Events() {
                         onClick={() => handleSignUp(event)}
                         disabled={event.nop === event.mnop}
                       >
-                        {event.nop === event.mnop ? 'Full Booked' : 'Sign Up'}
+                        {event.nop === event.mnop ? 'פעילות מלאה' : 'להרשמה'}
                       </button>
                     )}
                   </div>
@@ -195,17 +196,17 @@ function Events() {
                       </div>
                     )}
                     <button className="btn btn-primary" onClick={handleUpload}>
-                      Upload
+                      עלה קובץ
                     </button>
                   </div>
                 ) : (
                   <>
                     {event.fileUrl ? (
                       <a href={event.fileUrl} target="_blank" rel="noopener noreferrer">
-                        View File
+                        פתח קובץ
                       </a>
                     ) : (
-                      <span>No file uploaded</span>
+                      <span> </span>
                     )}
                   </>
                 )}

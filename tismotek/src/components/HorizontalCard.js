@@ -146,7 +146,7 @@ const HorizontalCard = () => {
                             שמור
                         </Button>
                         <Button variant="secondary" onClick={handleCancelEdit}>
-                            ביטול
+                            בטל
                         </Button>
                     </>
                 ) : (

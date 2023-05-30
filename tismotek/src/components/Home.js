@@ -24,6 +24,8 @@ function Home() {
   const [editedProjectsData, setEditedProjectsData] = useState(null);
   const [editedYouTubeLink, setEditedYouTubeLink] = useState('');
   const [editedMagazineData, setEditedMagazineData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state variable
+
 
 
   const fetchData = async () => {
@@ -35,8 +37,11 @@ function Home() {
       }));
 
       setHomeData(home);
+      setIsLoading(false); // Set loading to false when data is fetched
     } catch (error) {
       console.error(`Error fetching Home data:`, error);
+      setIsLoading(false); // Set loading to false in case of error
+
     }
   };
 
@@ -254,6 +259,11 @@ function Home() {
         }
   return (
     <div className="container">
+      {isLoading ? ( // Render loading div when isLoading is true
+        <div>...טוען</div>
+      ) : (
+        // Render the rest of the components when isLoading is false
+        <>
       <div className="top-section">
         {isEditingTop ? (
           <div>
@@ -271,14 +281,14 @@ function Home() {
                 setEditedTopData({ ...editedTopData, text: e.target.value })
               }
             />
-            <button onClick={handleSaveTop}>Save</button>
-            <button onClick={handleCancelTop}>Cancel</button>
+            <button onClick={handleSaveTop}>שמור</button>
+            <button onClick={handleCancelTop}>בטל</button>
           </div>
         ) : (
           <div>
             <img src={topData?.imageUrl} className="img-fluid" alt="Home" />
             <p>{topData?.text}</p>
-            {auth.currentUser && <button onClick={handleEditTop}>Edit</button>}
+            {auth.currentUser && <button onClick={handleEditTop}>ערוך</button>}
           </div>
         )}
       </div>
@@ -291,8 +301,8 @@ function Home() {
                     value={editedYouTubeLink}
                     onChange={(e) => setEditedYouTubeLink(e.target.value)}
                 />
-              <button onClick={handleSaveYouTube}>Save</button>
-              <button onClick={handleCancelYouTube}>Cancel</button>
+              <button onClick={handleSaveYouTube}>שמור</button>
+              <button onClick={handleCancelYouTube}>בטל</button>
             </div>
           ) : (
             <div className='youtube-edit-container'>
@@ -310,7 +320,7 @@ function Home() {
                 )}
                 </div>
                 <div className="edit-container">
-              {auth.currentUser && <button  onClick={handleEditYouTube}>Edit</button>}
+              {auth.currentUser && <button  onClick={handleEditYouTube}>ערוך</button>}
               </div>
             </div>
           )}
@@ -333,8 +343,8 @@ function Home() {
                   setEditedEventsData({ ...editedEventsData, text: e.target.value })
                 }
               />
-              <button onClick={handleSaveEvents}>Save</button>
-              <button onClick={handleCancelEvents}>Cancel</button>
+              <button onClick={handleSaveEvents}>שמור</button>
+              <button onClick={handleCancelEvents}>בטל</button>
             </div>
           ) : (
             <div>
@@ -346,7 +356,7 @@ function Home() {
                   </div>
                 </Link>
               )}
-              {auth.currentUser && <button onClick={handleEditEvents}>Edit</button>}
+              {auth.currentUser && <button onClick={handleEditEvents}>ערוך</button>}
             </div>
           )}
         </div>
@@ -367,8 +377,8 @@ function Home() {
                   setEditedProjectsData({ ...editedProjectsData, text: e.target.value })
                 }
               />
-              <button onClick={handleSaveProjects}>Save</button>
-              <button onClick={handleCancelProjects}>Cancel</button>
+              <button onClick={handleSaveProjects}>שמור</button>
+              <button onClick={handleCancelProjects}>בטל</button>
             </div>
           ) : (
             <div>
@@ -380,7 +390,7 @@ function Home() {
                   </div>
                 </Link>
               )}
-              {auth.currentUser && <button onClick={handleEditProjects}>Edit</button>}
+              {auth.currentUser && <button onClick={handleEditProjects}>ערוך</button>}
             </div>
           )}
         </div>
@@ -402,8 +412,8 @@ function Home() {
             />
              <span id="uploadPercentage">0%</span>
                         <progress id="uploadProgress" value="0" max="100"></progress>
-            <button onClick={handleSaveMagazine}>Save</button>
-            <button onClick={handleCancelMagazine}>Cancel</button>
+            <button onClick={handleSaveMagazine}>שמור</button>
+            <button onClick={handleCancelMagazine}>בטל</button>
           </div>
         ) : (
           <div>
@@ -412,11 +422,13 @@ function Home() {
                 {magazineData.text}
               </button>
             )}
-            {auth.currentUser && <button onClick={handleEditMagazine}>Edit</button>}
+            {auth.currentUser && <button onClick={handleEditMagazine}>ערוך</button>}
           </div>
         )}
       </div>
       <HorizontalCard/>
+      </>
+      )}
     </div>
   );
 }

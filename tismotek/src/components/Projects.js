@@ -135,7 +135,7 @@ function Projects() {
         }
     };
     const handleDelete = async (projectId, imageUrl) => {
-        const shouldDelete = window.confirm('Are you sure you want to delete this project?');
+        const shouldDelete = window.confirm('האם אתה בטוח שתרצה למחוק את הפרוייקט?');
         if (shouldDelete) {
             try {
                 // Delete image from storage
@@ -194,15 +194,15 @@ function Projects() {
                                             />
                                             <span id="uploadPercentage">0%</span>
                                             <progress id="uploadProgress" value="0" max="100"></progress>
-                                            <button onClick={() => handleSave(project.id)}>Save</button>
-                                            <button onClick={handleCancel}>Cancel</button>
+                                            <button onClick={() => handleSave(project.id)}>שמור</button>
+                                            <button onClick={handleCancel}>בטל</button>
                                         </div>
                                     ) : (
                                         <>
-                                            <button onClick={() => setIsEditing(true)}>Edit</button>
+                                            <button onClick={() => setIsEditing(true)}> ערוך פרוייקט</button>
                                             {'    '}
 
-                                            <button onClick={() => handleDelete(project.id, project.imageUrl)}>Delete</button> {/* Add delete button */}
+                                            <button onClick={() => handleDelete(project.id, project.imageUrl)}>מחק פרוייקט</button> {/* Add delete button */}
                                         </>
                                     )}
                                 </>
@@ -220,7 +220,7 @@ function Projects() {
             {auth.currentUser && (
                 <>
                     {isEditing || isNewProject ? null : (
-                        <button onClick={() => setIsNewProject(true)}>New Project</button>
+                        <button onClick={() => setIsNewProject(true)}>הוסף פרוייקט חדש</button>
                     )}
                     {isNewProject && (
                         <>
@@ -253,8 +253,8 @@ function Projects() {
                                 <span id="uploadPercentage">0%</span>
                                 <progress id="uploadProgress" value="0" max="100"></progress>
                             </div>
-                            <button onClick={() => handleSave()}>Save New Project</button>
-                            <button onClick={() => setIsNewProject(false)}>Cancel</button>
+                            <button onClick={() => handleSave()}>שמור פרוייקט חדש</button>
+                            <button onClick={() => setIsNewProject(false)}>ביטול</button>
                         </>
                     )}
                 </>
