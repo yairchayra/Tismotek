@@ -107,6 +107,10 @@ function Events() {
     const shouldDelete = window.confirm('Are you sure you want to delete this project?');
     if (shouldDelete) {
       try {
+        if (event.excelUrl && event.excelUrl !== '') {
+          const storageRef = ref(storage, event.excelUrl);
+          await deleteObject(storageRef);
+        }
         const storageRef = ref(storage, event.fileUrl);
         await deleteObject(storageRef);
         const eventRef = doc(db, 'events', event.id);
