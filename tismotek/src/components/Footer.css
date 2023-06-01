@@ -2,4 +2,12 @@
     background-color: #2c2f66;
 
     padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.subscribe-container{
+    width:50%;
+
 }

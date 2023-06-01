@@ -4,6 +4,7 @@ import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 import {  auth } from '../firebase';
+import Subscribe from './Subscribe'
 
 function Footer() {
   const { logOut } = useUserAuth();
@@ -19,13 +20,14 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="user-container">
         {auth.currentUser ? (
           <button onClick={handleLogout}>התנתק</button>
         ) : (
           <CustomLink to="/login">התחברות</CustomLink>
         )}
       </div>
+      <div className='subscribe-container'><Subscribe/></div>
     </footer>
   );
 }
