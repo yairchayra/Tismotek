@@ -42,8 +42,15 @@
 
 
   }
-  a, a:visited, a:active {
+  a, a:visited {
     color: black;
+  }
+   .active a{
+    background-color:#FFA559;
+    border-radius: 25px
+  }
+  .active a:hover {
+    color:white;
   }
   a:hover {
     color:#FFA559;
