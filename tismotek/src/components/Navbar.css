@@ -46,12 +46,9 @@
     color: black;
   }
    .active a{
-    background-color:#FFA559;
-    border-radius: 25px
-  }
-  .active a:hover {
-    color:white;
-  }
+    color:#FFA559;
+   }
+
   a:hover {
     color:#FFA559;
   }

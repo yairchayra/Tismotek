@@ -8,7 +8,6 @@ import Login from './Login';
 import Projects from './Projects';
 import Events from './Events';
 import Contacts from './Contacts';
-import Donations from './Donations';
 import ProtectedRoute from './ProtectedRoute';
 import SignUpForm from './SignUpForm';
 import AddEvent from './AddEvent';
@@ -55,7 +54,6 @@ function Router() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/events" element={<Events />} />
             <Route path="/contacts" element={<Contacts />} />
-            <Route path="/donations" element={<Donations />} />
             <Route
               exact
               path="/events/signup/:eventId"
