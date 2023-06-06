@@ -17,31 +17,47 @@ function DonationEdit() {
   };
 
   const handleSave = async () => {
-    try {
-      const docRef = doc(db, 'donation', 'link');
-      await updateDoc(docRef, { url });
+    if (!url.trim()) {
       setIsEditing(false);
-      console.log('Donation link updated successfully!');
-    } catch (error) {
-      console.log('Error updating donation link:', error);
+      return;
+    }
+
+    const shouldUpdate = window.confirm('האם אתה בטוח שתרצה לשנות את הקישור לאתר התרומות?');
+    if (shouldUpdate) {
+      try {
+        const docRef = doc(db, 'donation', 'link');
+        await updateDoc(docRef, { url });
+        setIsEditing(false);
+        console.log('Donation link updated successfully!');
+      } catch (error) {
+        console.log('Error updating donation link:', error);
+      }
+    } else {
+      setIsEditing(false);
     }
   };
 
   return (
     <div className="DonationEdit">
       {!isEditing ? (
-        <button onClick={handleEdit}>Edit Donation Link</button>
+        <button type="button" className="btn btn-info" onClick={handleEdit}>
+          ערוך קישור לאתר התרומות
+        </button>
       ) : (
         <>
           <input
-          className='form-control'
+            className="form-control"
             type="text"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            placeholder="Enter the new donation link"
+            placeholder="הכנס קישור חדש לאתר התרומות"
           />
-          <button onClick={handleSave}>Save</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <button type="button" className="btn btn-primary" onClick={handleSave}>
+            שמור
+          </button>
+          <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+            בטל
+          </button>
         </>
       )}
     </div>

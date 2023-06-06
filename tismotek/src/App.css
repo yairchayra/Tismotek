@@ -1,5 +1,13 @@
 .App {
-    margin-left: 5%;
-    margin-right: 5%;
-    background-color: white;
-  }
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: white;
+  position: relative;
+  min-height: 100vh;
+}
+
+.donation-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50px;
+}

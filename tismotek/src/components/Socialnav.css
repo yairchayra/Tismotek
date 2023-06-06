@@ -1,24 +1,39 @@
 .social-nav {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #FFA559;
-    height: 60px;
-    padding-left: 30px;
-  }
+  position: relative; /* Add position: relative to the navbar */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #FFA559;
+  height: 60px;
+  padding-left: 30px;
+}
 
-  .social-nav a {
-    margin-right: 10px;
-  }
+.social-nav a {
+  margin-right: 10px;
+}
 
-  .social-nav img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    filter: invert(18%) sepia(8%) saturate(7466%) hue-rotate(209deg) brightness(93%) contrast(92%);
-    /* logo text color :#2c2f66 */
-    }
-    .btn{
-      margin-right: 10px;
-      color: black;
-    }
+.social-nav img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  filter: invert(18%) sepia(8%) saturate(7466%) hue-rotate(209deg) brightness(93%) contrast(92%);
+  /* logo text color :#2c2f66 */
+}
+
+.btn {
+  margin-right: 10px;
+  color: black;
+}
+
+.donation-social {
+  position: absolute; /* Add position: absolute to the Donation Social component */
+  top: 6px;
+  right: 10px; /* Adjust the right value based on your desired positioning */
+  display: flex;
+  align-items: center;
+
+}
+.donation-social button{
+  width: 200px;
+
+}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { auth, db } from '../firebase';
 import { getDoc, doc, updateDoc, increment } from 'firebase/firestore';
 import './Socialnav.css';
+import DonationButton from './DonationButton';
 
 function Socialnav() {
   const [editMode, setEditMode] = useState(false);
@@ -182,6 +183,9 @@ function Socialnav() {
               <button className="btn btn-secondary">לאזור האישי</button>
             </Link>
           )}
+          <div className='donation-social'>
+          <DonationButton/>
+          </div>
         </>
       )}
     </div>

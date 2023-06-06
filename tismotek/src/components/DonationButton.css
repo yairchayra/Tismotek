@@ -1,0 +1,15 @@
+.btn-success{
+    background-color: #2c2f66;
+    border-color: #2c2f66;
+
+}
+.btn-success a{
+    color: white!important
+}
+.btn-success:hover {
+    background-color: #FFFAF4;
+    border-color: #2c2f66;
+}
+.btn-success:hover  a{
+   color: black!important
+}

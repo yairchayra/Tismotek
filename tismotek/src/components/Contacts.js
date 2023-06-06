@@ -33,6 +33,7 @@ function Contacts() {
     }
 
     return (
+        <div className=' contact-container'>
         <div className="container border mt-3 bg-light">
             <div className="row">
                 <div className="col -md-6 p-5 custom-social-orange text-white">
@@ -71,6 +72,7 @@ function Contacts() {
                 </div>
             </div>
 
+        </div>
         </div>
     );
 }

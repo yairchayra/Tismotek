@@ -258,7 +258,7 @@ function Home() {
         return match ? match[1] : null;
         }
   return (
-    <div className="container">
+    <div className="home-container">
       {isLoading ? ( // Render loading div when isLoading is true
         <div>...טוען</div>
       ) : (
@@ -285,11 +285,13 @@ function Home() {
             <button onClick={handleCancelTop}>בטל</button>
           </div>
         ) : (
-          <div>
-            <img src={topData?.imageUrl} className="img-fluid" alt="Home" />
-            <p>{topData?.text}</p>
-            {auth.currentUser && <button onClick={handleEditTop}>ערוך</button>}
-          </div>
+          <div style={{ position: 'relative' }}>
+          <img src={topData?.imageUrl} alt="Home" />
+          <p style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            {topData?.text}
+          </p>
+          {auth.currentUser && <button onClick={handleEditTop}>ערוך</button>}
+        </div>
         )}
       </div>
       <div className="events-projects-section">
