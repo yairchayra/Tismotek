@@ -6,12 +6,14 @@ import { getDoc, doc } from 'firebase/firestore';
 
 function Navbar() {
   const [donationLink, setDonationLink] = useState('');
+  const [logoUrl, setLogoUrl] = useState('');
 
   useEffect(() => {
-    fetchDonationLink();
+    fetchDonationData();
+    fetchLogoData();
   }, []);
 
-  const fetchDonationLink = async () => {
+  const fetchDonationData = async () => {
     try {
       const docRef = doc(db, 'donation', 'link');
       const docSnapshot = await getDoc(docRef);
@@ -21,6 +23,19 @@ function Navbar() {
       }
     } catch (error) {
       console.log('Error fetching donation link:', error);
+    }
+  };
+
+  const fetchLogoData = async () => {
+    try {
+      const docRef = doc(db, 'logos', 'links');
+      const docSnapshot = await getDoc(docRef);
+
+      if (docSnapshot.exists()) {
+        setLogoUrl(docSnapshot.data().mainUrl);
+      }
+    } catch (error) {
+      console.log('Error fetching logo data:', error);
     }
   };
 
@@ -35,16 +50,12 @@ function Navbar() {
     <nav className="Navbar">
       <div className="logo-container">
         <Link to="/">
-          <img
-            src='https://firebasestorage.googleapis.com/v0/b/tismotek-jce-23.appspot.com/o/logos%2Flogo.png?alt=media&token=7e40d507-1ba8-4ddb-9e75-4f172df2f5d0'
-            alt="Logo"
-            title='דף הבית'
-          />
+          <img src={logoUrl} alt="Logo" title="דף הבית" />
         </Link>
       </div>
 
       <ul className="nav-links">
-        <li >
+        <li>
           <a href={`http://${getFormattedLink()}`}>תרומה</a>
         </li>
         <CustomLink to="/contacts">צור קשר</CustomLink>
@@ -62,7 +73,7 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
   return (
-    <li className={isActive && to!=='/' ? 'active' : ''}>
+    <li className={isActive && to !== '/' ? 'active' : ''}>
       <Link to={to} {...props}>
         {children}
       </Link>

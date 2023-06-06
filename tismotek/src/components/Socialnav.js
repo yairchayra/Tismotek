@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link component
+import { Link } from 'react-router-dom';
 import { auth, db } from '../firebase';
 import { getDoc, doc, updateDoc, increment } from 'firebase/firestore';
 import './Socialnav.css';
@@ -16,9 +16,15 @@ function Socialnav() {
   const [facebookLink, setFacebookLink] = useState('');
   const [whatsappLink, setWhatsappLink] = useState('');
   const [instagramLink, setInstagramLink] = useState('');
+  const [socialLogoUrl, setSocialLogoUrl] = useState({
+    youtubeLogo: '',
+    facebookLogo: '',
+    whatsappLogo: '',
+    instagramLogo: '',
+  });
 
   useEffect(() => {
-    const fetchAboutData = async () => {
+    const fetchSocialData = async () => {
       try {
         const docRef = doc(db, 'social', 'links');
         const docSnapshot = await getDoc(docRef);
@@ -27,11 +33,31 @@ function Socialnav() {
           setSocialData(docSnapshot.data());
         }
       } catch (error) {
-        console.error('Error fetching about data:', error);
+        console.error('Error fetching social data:', error);
       }
     };
 
-    fetchAboutData();
+    const fetchLogoData = async () => {
+      try {
+        const docRef = doc(db, 'logos', 'links');
+        const docSnapshot = await getDoc(docRef);
+
+        if (docSnapshot.exists()) {
+          const logoData = docSnapshot.data();
+          setSocialLogoUrl({
+            youtubeLogo: logoData.youtubeUrl || '',
+            facebookLogo: logoData.facebookUrl || '',
+            whatsappLogo: logoData.whatsappUrl || '',
+            instagramLogo: logoData.instagramUrl || '',
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching logo data:', error);
+      }
+    };
+
+    fetchSocialData();
+    fetchLogoData();
   }, []);
 
   useEffect(() => {
@@ -105,14 +131,18 @@ function Socialnav() {
             value={instagramLink}
             onChange={(e) => setInstagramLink(e.target.value)}
           />
-          <button className="btn btn-primary" onClick={handleSave.bind(null, 'facebook')}>Save</button>
-          <button className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
+          <button className="btn btn-primary" onClick={handleSave.bind(null, 'facebook')}>
+            Save
+          </button>
+          <button className="btn btn-secondary" onClick={handleCancel}>
+            Cancel
+          </button>
         </>
       ) : (
         <>
           <a href={youtubeLink} target="_blank" rel="noreferrer">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/tismotek-jce-23.appspot.com/o/logos%2Fyoutube.png?alt=media&token=1a5a8159-efb6-4e1e-9ad7-4663387ddc69"
+              src={socialLogoUrl.youtubeLogo}
               alt="YouTube"
               title="Youtube"
               onClick={() => handleSave('youtube')}
@@ -120,7 +150,7 @@ function Socialnav() {
           </a>
           <a href={facebookLink} target="_blank" rel="noreferrer">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/tismotek-jce-23.appspot.com/o/logos%2Ffacebook.png?alt=media&token=b2ecff01-a2f5-44c6-9884-449c6ccf700a"
+              src={socialLogoUrl.facebookLogo}
               alt="Facebook"
               title="Facebook"
               onClick={() => handleSave('facebook')}
@@ -128,7 +158,7 @@ function Socialnav() {
           </a>
           <a href={whatsappLink} target="_blank" rel="noreferrer">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/tismotek-jce-23.appspot.com/o/logos%2Fwhatsapp.png?alt=media&token=f7904d1e-345d-4339-b2c9-b6f30e9fa845"
+              src={socialLogoUrl.whatsappLogo}
               alt="WhatsApp"
               title="Whatsapp"
               onClick={() => handleSave('whatsapp')}
@@ -136,25 +166,22 @@ function Socialnav() {
           </a>
           <a href={instagramLink} target="_blank" rel="noreferrer">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/tismotek-jce-23.appspot.com/o/logos%2Finstagram.png?alt=media&token=f753b25f-e44e-4fc7-87df-ebed55ac4ff8"
+              src={socialLogoUrl.instagramLogo}
               alt="Instagram"
               title="Instagram"
               onClick={() => handleSave('instagram')}
             />
           </a>
           {auth.currentUser && (
-            <button   className="btn btn-secondary" onClick={handleEdit}>
+            <button className="btn btn-secondary" onClick={handleEdit}>
               {editMode ? 'Editing...' : 'ערוך קישורים'}
             </button>
           )}
           {auth.currentUser && (
-            <Link to="/dashboard" >
-              <button className="btn btn-secondary">
-              לאזור האישי
-              </button>
-              </Link>
+            <Link to="/dashboard">
+              <button className="btn btn-secondary">לאזור האישי</button>
+            </Link>
           )}
-
         </>
       )}
     </div>
