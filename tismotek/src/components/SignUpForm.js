@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { doc, onSnapshot, updateDoc,arrayUnion } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
+import './SignUpForm.css'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function SignUpForm({ selectedEvent }) {
   const { eventId } = useParams();
@@ -55,38 +56,43 @@ function SignUpForm({ selectedEvent }) {
   };
 
   return (
-    <div>
-      <h2>Sign Up Form</h2>
+    <div className='afterSignUp'>
+      <h2>טופס הרשמה</h2>
       {submittedName && (
         <div>
-          Thank you for signing up, {submittedName}!
+          !{submittedName},תודה רבה על הרשמתך
           <br />
-          You have successfully registered for the event.
+         .מחכים לראותכם בפעילות
         </div>
       )}
       {!submittedName && eventData && (
         <form onSubmit={handleSubmit} className="form-control">
           <div>
-            <label>Full Name:</label>
+
             <input type="text" name="fullName" required />
+            <label>:שם מלא</label>
           </div>
           <div>
-            <label>Phone Number:</label>
+
             <input type="tel" name="phoneNumber" required />
+            <label>:מספר טלפון</label>
           </div>
           <div>
-            <label>Address:</label>
+
             <input type="text" name="address" required />
+            <label>:כתובת</label>
           </div>
           <div>
-            <label>Email:</label>
-            <input type="email" name="email" required />
+
+            <input type="email" name="email"  />
+            <label>:כתובת אימייל</label>
           </div>
           <div>
-            <label>Number of Participants:</label>
+
             <input type="number" name="numberOfParticipants"  min={1} required  />
+            <label>:מספר משתתפים</label>
           </div>
-          <button type="submit">Submit</button>
+          <button  type="submit">הגש</button>
         </form>
       )}
     </div>

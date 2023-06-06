@@ -3,6 +3,7 @@ import { doc, setDoc,collection, getDocs } from 'firebase/firestore';
 import { db, storage } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import './AddEvent.css'
 
 
 function AddEvent() {
@@ -120,32 +121,38 @@ function AddEvent() {
     };
 
     return (
-        <div>
-            <h1>Add Event</h1>
+        <div className='addevent-container'>
+            <h1>הוסף פעילות</h1>
             <form className='form-control'>
                 <div>
-                    <label>Title:</label>
+
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <label>:כותרת</label>
                 </div>
                 <div>
-                    <label>Location:</label>
+
                     <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
+                    <label>:מיקום</label>
                 </div>
                 <div>
-                    <label>Date:</label>
+
                     <input type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
+                    <label>:תאריך</label>
                 </div>
                 <div>
-                    <label>Description:</label>
+
                     <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <label>:תיאור</label>
                 </div>
                 <div>
-                    <label>Max Participants:</label>
+
                     <input type="number" min={0} value={mnop} onChange={(e) => setMnop(e.target.value)} />
+                    <label>:מספר משתתפים מרבי</label>
                 </div>
                 <div>
-                    <label>File:</label>
+
                     <input type="file" onChange={handleFileChange} />
+                    <label>:קובץ</label>
                     {uploadProgress > 0 && <p>Upload progress: {uploadProgress.toFixed(2)}%</p>}
                 </div>
                 <div>

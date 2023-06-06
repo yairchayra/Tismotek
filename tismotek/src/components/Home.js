@@ -264,7 +264,7 @@ function Home() {
       ) : (
         // Render the rest of the components when isLoading is false
         <>
-      <div className="top-section">
+      <div className="top-section" style={{ background: `url(${topData?.imageUrl}) center/cover fixed no-repeat ` }}>
         {isEditingTop ? (
           <div>
             <input className="form-control"
@@ -285,11 +285,10 @@ function Home() {
             <button onClick={handleCancelTop}>בטל</button>
           </div>
         ) : (
-          <div style={{ position: 'relative' }}>
-          <img src={topData?.imageUrl} alt="Home" />
-          <p style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <div className='top-section-text'>
+          <h5>
             {topData?.text}
-          </p>
+          </h5>
           {auth.currentUser && <button onClick={handleEditTop}>ערוך</button>}
         </div>
         )}
@@ -418,9 +417,9 @@ function Home() {
             <button onClick={handleCancelMagazine}>בטל</button>
           </div>
         ) : (
-          <div>
+          <div className='magazine-section'>
             {magazineData && (
-              <button onClick={() => window.open(magazineData.Url, '_blank')}>
+              <button type="button"  id="magazine" className="btn btn-primary btn-lg btn-block" onClick={() => window.open(magazineData.Url, '_blank')}>
                 {magazineData.text}
               </button>
             )}
@@ -428,6 +427,7 @@ function Home() {
           </div>
         )}
       </div>
+
       <HorizontalCard/>
       </>
       )}

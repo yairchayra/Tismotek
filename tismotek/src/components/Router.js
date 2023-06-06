@@ -17,7 +17,9 @@ import Dashboard from './Dashboard';
 import SocialData from './SocialData';
 import EventsData from './EventsData';
 import SideBar from './SideBar';
+import DonationButton from './DonationButton';
 import './Adminlayout.css';
+import './Mainlayout.css';
 
 function Router() {
   const Mainlayout = () => {
@@ -27,6 +29,9 @@ function Router() {
         <Navbar />
         <Outlet />
         <Footer />
+        <div className='donation-button'>
+      <DonationButton/>
+      </div>
       </>
     );
   };
