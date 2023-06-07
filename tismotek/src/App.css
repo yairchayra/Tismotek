@@ -5,5 +5,15 @@
   position: relative;
   min-height: 100vh;
 }
+@media (max-width: 768px) {
+  .App {
+   margin:0;
+    background-color: white;
+    position: relative;
+    min-height: 100vh;
+  }
+
+
+}
 
 

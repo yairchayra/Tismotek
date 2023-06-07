@@ -3,10 +3,12 @@ import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { getDoc, doc } from 'firebase/firestore';
+import {RxHamburgerMenu } from "react-icons/rx";
 
 function Navbar() {
   const [donationLink, setDonationLink] = useState('');
   const [logoUrl, setLogoUrl] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     fetchDonationData();
@@ -46,35 +48,48 @@ function Navbar() {
     return donationLink;
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <nav className="Navbar">
+    <nav className={`Navbar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
       <div className="logo-container">
         <Link to="/">
           <img src={logoUrl} alt="Logo" title="דף הבית" />
         </Link>
       </div>
 
-      <ul className="nav-links">
+      <div className="mobile-menu-button" onClick={toggleMobileMenu}>
+        <RxHamburgerMenu />
+      </div>
+
+      <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
         <li>
           <a href={`http://${getFormattedLink()}`}>תרומה</a>
         </li>
-        <CustomLink to="/contacts">צור קשר</CustomLink>
-        <CustomLink to="/events">פעילויות</CustomLink>
-        <CustomLink to="/projects">פרוייקטים</CustomLink>
-        <CustomLink to="/about">אודות תסמותק</CustomLink>
-        <CustomLink to="/">דף הבית</CustomLink>
+        <CustomLink to="/contacts"  setIsMobileMenuOpen={setIsMobileMenuOpen}>צור קשר</CustomLink>
+        <CustomLink to="/events"  setIsMobileMenuOpen={setIsMobileMenuOpen}>פעילויות</CustomLink>
+        <CustomLink to="/projects"  setIsMobileMenuOpen={setIsMobileMenuOpen}>פרוייקטים</CustomLink>
+        <CustomLink to="/about"  setIsMobileMenuOpen={setIsMobileMenuOpen}>אודות תסמותק</CustomLink>
+        <CustomLink to="/"  setIsMobileMenuOpen={setIsMobileMenuOpen}>דף הבית</CustomLink>
       </ul>
     </nav>
   );
-}
 
-function CustomLink({ to, children, ...props }) {
+}
+// CustomLink component
+function CustomLink({ to, children, setIsMobileMenuOpen, ...props }) {
   const resolvedPath = useResolvedPath(to);
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
+  const handleClick = () => {
+    setIsMobileMenuOpen(false); // Close the mobile menu when link is pressed
+  };
+
   return (
     <li className={isActive && to !== '/' ? 'active' : ''}>
-      <Link to={to} {...props}>
+      <Link to={to} onClick={handleClick} {...props}>
         {children}
       </Link>
     </li>

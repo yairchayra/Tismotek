@@ -32,5 +32,14 @@
     overflow: visible;
     height: auto;
   }
+  @media (max-width: 768px) {
+
+    .horizontal-card{
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+    }
+
+  }
 
 

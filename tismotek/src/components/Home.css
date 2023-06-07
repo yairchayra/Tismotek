@@ -107,3 +107,29 @@
     background-color: #fdb375;
     border-color: #FFA559;
   }
+  @media (max-width: 768px) {
+
+    .events-projects-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+    }
+    .events-section,
+    .projects-section,.youtube-section {
+      margin-bottom: 20px;
+      width: 90%;
+      height: auto;
+    }
+    .magazine-section button#magazine {
+      width: 90%;
+      background-color: #FFA559;
+      border-color:#FFA559 ;
+    }
+    .magazine-section button#magazine:hover{
+      width: 100%;
+      background-color: #fdb375;
+      border-color: #FFA559;
+    }
+  }

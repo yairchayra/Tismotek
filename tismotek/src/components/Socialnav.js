@@ -141,6 +141,7 @@ function Socialnav() {
         </>
       ) : (
         <>
+        <div className='social-links'>
           <a href={youtubeLink} target="_blank" rel="noreferrer">
             <img
               src={socialLogoUrl.youtubeLogo}
@@ -173,6 +174,7 @@ function Socialnav() {
               onClick={() => handleSave('instagram')}
             />
           </a>
+          </div>
           {auth.currentUser && (
             <button className="btn btn-secondary" onClick={handleEdit}>
               {editMode ? 'Editing...' : 'ערוך קישורים'}
