@@ -5,3 +5,99 @@
     margin-bottom :20px;
     width: 25%;
 }
+@media (max-width: 768px) {
+    .events-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .table {
+
+      width: 100%;
+      display: block; /* Display table as a block element */
+
+    }
+
+    .table thead,
+    .table tbody,
+    .table th {
+      display:flex; /* Display table elements as block elements */
+      flex-direction: column;
+      align-items: center;
+    }
+    .table tr{
+        display:flex; /* Display table elements as block elements */
+      flex-direction: column-reverse;
+    }
+    .table td{
+    display:flex; /* Display table elements as block elements */
+     flex-direction: row-reverse;
+    }
+
+    .table thead tr {
+      position: absolute; /* Position the table header at the top */
+      top: -9999px; /* Hide the table header off-screen */
+      left: -9999px;
+    }
+
+    .table tbody tr {
+      border: 1px solid #ccc;
+      margin-bottom: 20px; /* Add margin between table rows */
+      width: 95%;
+    }
+
+     .table td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-right: 50%;
+    min-height: 30px;
+    }
+
+    .table td:before {
+
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 45%;
+      padding-left: 10px;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+
+    .table td:nth-of-type(1):before {
+      content: ':פעולות';
+    }
+
+    .table td:nth-of-type(2):before {
+      content: ':קובץ מצורף';
+    }
+
+    .table td:nth-of-type(3):before {
+      content: ':תיאור';
+    }
+
+    .table td:nth-of-type(4):before {
+      content: ':תאריך ושעה';
+    }
+
+    .table td:nth-of-type(5):before {
+      content: ':מיקום';
+    }
+
+    .table td:nth-of-type(6):before {
+      content: ':כותרת';
+    }
+
+    .table td:nth-of-type(7):before {
+      content: ':מספר משתתפים מקסימלי';
+    }
+
+    .table td:nth-of-type(8):before {
+      content: ':מספר משתתפים רשומים';
+    }
+
+
+  }

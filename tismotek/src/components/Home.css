@@ -17,7 +17,26 @@
     border-radius: 4px;
     margin-bottom: 20px;
   }
+  .top-section{
+    overflow: hidden;
+    display: 'flex';
+    align-items: center;
+    justify-content: center;
+    width : 90%;
+    max-height:400px;
+  }
+  .text-img-top{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+  }
+  .text-img-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center; /* normally it's the default value */
 
+  }
   .top-section-text {
     position: absolute;
     bottom: 0;
@@ -35,7 +54,7 @@
   .events-projects-section {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 95%;
   }
 
   .youtube-section {
@@ -131,5 +150,8 @@
       width: 100%;
       background-color: #fdb375;
       border-color: #FFA559;
+    }
+    .top-section{
+      max-height:225px;
     }
   }

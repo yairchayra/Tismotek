@@ -264,7 +264,7 @@ function Home() {
       ) : (
         // Render the rest of the components when isLoading is false
         <>
-      <div className="top-section" style={{ background: `url(${topData?.imageUrl}) center/cover fixed no-repeat ` }}>
+      <div className="top-section" >
         {isEditingTop ? (
           <div>
             <input className="form-control"
@@ -286,10 +286,13 @@ function Home() {
             <button  type="button" className="btn btn-secondary" onClick={handleCancelTop}>בטל</button>
           </div>
         ) : (
+          <div className='text-img-top' >
+            <img  src={topData?.imageUrl} alt='top '></img>
           <div className='top-section-text'>
           <h5>
             {topData?.text}
           </h5>
+          </div>
           {auth.currentUser && <button  type="button" className="btn btn-secondary" onClick={handleEditTop}>ערוך</button>}
         </div>
         )}

@@ -37,6 +37,14 @@
   width: 200px;
 
 }
+@media (max-width: 768px) {
+  .donation-social button{
+    width: 100px;
+
+  }
+
+
+}
 
 
 

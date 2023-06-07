@@ -4,6 +4,7 @@
     align-items: center;
     margin-bottom: 20px;
     text-align: right;
+    width: 95%;
 }
 .toExpand {
     display: flex;

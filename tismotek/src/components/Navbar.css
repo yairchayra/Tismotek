@@ -93,4 +93,13 @@ a:hover {
     padding: 0.5rem 0;
     color: black;
   }
+  .logo-container {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 20px;
+  }
 }
