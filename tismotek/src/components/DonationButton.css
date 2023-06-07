@@ -1,15 +1,15 @@
-.btn-success{
+#donation-b {
     background-color: #2c2f66;
     border-color: #2c2f66;
 
 }
-.btn-success a{
+#donation-b a{
     color: white!important
 }
-.btn-success:hover {
+#donation-b:hover {
     background-color: #FFFAF4;
     border-color: #2c2f66;
 }
-.btn-success:hover  a{
+#donation-b:hover  a{
    color: black!important
 }

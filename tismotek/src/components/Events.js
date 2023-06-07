@@ -136,7 +136,7 @@ function Events() {
       <h1>פעילויות</h1>
       {auth.currentUser && (
         <div>
-          <button onClick={handleAddEvent}>הוסף פעילות</button>
+          <button id='addeventbutton'  className="btn btn-success" onClick={handleAddEvent}>הוסף פעילות</button>
         </div>
       )}
       <table className="table">

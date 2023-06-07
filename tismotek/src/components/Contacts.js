@@ -160,14 +160,14 @@ function Contacts() {
             ) : (
               // Render the "Edit" button when not editing and user is authenticated
               auth.currentUser && (
-                <button onClick={handleEdit}>Edit</button>
+                <button className="btn btn-secondary" onClick={handleEdit}>ערוך</button>
               )
             )}
             {/* Render the "Save" and "Cancel" buttons when editing and user is authenticated */}
             {isEditing && auth.currentUser && (
               <div>
-                <button onClick={handleSave}>Save</button>
-                <button onClick={handleCancel}>Cancel</button>
+                <button  className="btn btn-success" onClick={handleSave}>שמור</button>
+                <button className="btn btn-secondary" onClick={handleCancel}>בטל</button>
               </div>
             )}
           </div>

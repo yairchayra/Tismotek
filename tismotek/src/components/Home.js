@@ -276,20 +276,21 @@ function Home() {
                         <progress id="uploadProgress" value="0" max="100"></progress>
             <input
               type="text"
+              className="form-control"
               value={editedTopData?.text}
               onChange={(e) =>
                 setEditedTopData({ ...editedTopData, text: e.target.value })
               }
             />
-            <button onClick={handleSaveTop}>שמור</button>
-            <button onClick={handleCancelTop}>בטל</button>
+            <button type="button" className="btn btn-success" onClick={handleSaveTop}>שמור</button>
+            <button  type="button" className="btn btn-secondary" onClick={handleCancelTop}>בטל</button>
           </div>
         ) : (
           <div className='top-section-text'>
           <h5>
             {topData?.text}
           </h5>
-          {auth.currentUser && <button onClick={handleEditTop}>ערוך</button>}
+          {auth.currentUser && <button  type="button" className="btn btn-secondary" onClick={handleEditTop}>ערוך</button>}
         </div>
         )}
       </div>
@@ -299,11 +300,12 @@ function Home() {
             <div>
               <input
                     type="text"
+                    className="form-control"
                     value={editedYouTubeLink}
                     onChange={(e) => setEditedYouTubeLink(e.target.value)}
                 />
-              <button onClick={handleSaveYouTube}>שמור</button>
-              <button onClick={handleCancelYouTube}>בטל</button>
+              <button type="button" className="btn btn-success" onClick={handleSaveYouTube}>שמור</button>
+              <button type="button" className="btn btn-secondary" onClick={handleCancelYouTube}>בטל</button>
             </div>
           ) : (
             <div className='youtube-edit-container'>
@@ -321,7 +323,7 @@ function Home() {
                 )}
                 </div>
                 <div className="edit-container">
-              {auth.currentUser && <button  onClick={handleEditYouTube}>ערוך</button>}
+              {auth.currentUser && <button   type="button" className="btn btn-secondary" onClick={handleEditYouTube}>ערוך</button>}
               </div>
             </div>
           )}
@@ -339,13 +341,14 @@ function Home() {
 
               <input
                 type="text"
+                className="form-control"
                 value={editedEventsData?.text}
                 onChange={(e) =>
                   setEditedEventsData({ ...editedEventsData, text: e.target.value })
                 }
               />
-              <button onClick={handleSaveEvents}>שמור</button>
-              <button onClick={handleCancelEvents}>בטל</button>
+              <button  type="button" className="btn btn-success" onClick={handleSaveEvents}>שמור</button>
+              <button  type="button" className="btn btn-secondary" onClick={handleCancelEvents}>בטל</button>
             </div>
           ) : (
             <div>
@@ -357,7 +360,7 @@ function Home() {
                   </div>
                 </Link>
               )}
-              {auth.currentUser && <button onClick={handleEditEvents}>ערוך</button>}
+              {auth.currentUser && <button  type="button" className="btn btn-secondary" onClick={handleEditEvents}>ערוך</button>}
             </div>
           )}
         </div>
@@ -373,13 +376,14 @@ function Home() {
                         <progress id="uploadProgress" value="0" max="100"></progress>
               <input
                 type="text"
+                className="form-control"
                 value={editedProjectsData?.text}
                 onChange={(e) =>
                   setEditedProjectsData({ ...editedProjectsData, text: e.target.value })
                 }
               />
-              <button onClick={handleSaveProjects}>שמור</button>
-              <button onClick={handleCancelProjects}>בטל</button>
+              <button type="button" className="btn btn-success" onClick={handleSaveProjects}>שמור</button>
+              <button type="button" className="btn btn-secondary" onClick={handleCancelProjects}>בטל</button>
             </div>
           ) : (
             <div>
@@ -391,7 +395,7 @@ function Home() {
                   </div>
                 </Link>
               )}
-              {auth.currentUser && <button onClick={handleEditProjects}>ערוך</button>}
+              {auth.currentUser && <button  type="button" className="btn btn-secondary" onClick={handleEditProjects}>ערוך</button>}
             </div>
           )}
         </div>
@@ -401,6 +405,7 @@ function Home() {
           <div>
             <input
               type="text"
+              className="form-control"
               value={editedMagazineData?.text}
               onChange={(e) =>
                 setEditedMagazineData({ ...editedMagazineData, text: e.target.value })
@@ -413,8 +418,8 @@ function Home() {
             />
              <span id="uploadPercentage">0%</span>
                         <progress id="uploadProgress" value="0" max="100"></progress>
-            <button onClick={handleSaveMagazine}>שמור</button>
-            <button onClick={handleCancelMagazine}>בטל</button>
+            <button type="button" className="btn btn-success" onClick={handleSaveMagazine}>שמור</button>
+            <button type="button" className="btn btn-secondary" onClick={handleCancelMagazine}>בטל</button>
           </div>
         ) : (
           <div className='magazine-section'>
@@ -423,7 +428,7 @@ function Home() {
                 {magazineData.text}
               </button>
             )}
-            {auth.currentUser && <button onClick={handleEditMagazine}>ערוך</button>}
+            {auth.currentUser && <button   type="button" className="btn btn-secondary" onClick={handleEditMagazine}>ערוך</button>}
           </div>
         )}
       </div>

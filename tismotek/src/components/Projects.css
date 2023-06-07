@@ -50,3 +50,18 @@ input, textarea {
   justify-content: flex-start;
   position: relative;
 }
+#createnewprojectbutton{
+  width: 20%;
+}
+
+.newProject-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.newproject-buttons-container{
+  display: flex;
+  flex-direction: row;
+}

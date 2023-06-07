@@ -25,9 +25,11 @@ function DonationButton() {
   };
 
   return (
-    <button type="button" className="btn btn-success btn-lg">
+
+    <button id='donation-b' type="button" className="btn btn-success btn-lg">
       <a  className="text-decoration-none"href={donationLink} target="_blank" rel="noopener noreferrer">לתרומה      </a>
     </button>
+
   );
 }
 

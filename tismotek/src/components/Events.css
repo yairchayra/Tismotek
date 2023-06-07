@@ -1,3 +1,7 @@
 .events-container{
     text-align: right;
 }
+#addeventbutton{
+    margin-bottom :20px;
+    width: 25%;
+}

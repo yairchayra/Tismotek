@@ -110,11 +110,11 @@ const About = () => {
       <div className="about__buttons">
         {isEditing ? (
           <>
-            <button onClick={handleSave}>שמור</button>
-            <button onClick={handleCancel}>בטל</button>
+            <button  type="button" className="btn btn-success" onClick={handleSave}>שמור</button>
+            <button  type="button" className="btn btn-secondary" onClick={handleCancel}>בטל</button>
           </>
         ) : (
-          auth.currentUser && <button onClick={handleEdit}>ערוך</button>
+          auth.currentUser && <button type="button" className="btn btn-secondary" onClick={handleEdit}>ערוך</button>
         )}
       </div>
       <div className="about__text">

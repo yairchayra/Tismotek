@@ -194,15 +194,15 @@ function Projects() {
                                             />
                                             <span id="uploadPercentage">0%</span>
                                             <progress id="uploadProgress" value="0" max="100"></progress>
-                                            <button onClick={() => handleSave(project.id)}>שמור</button>
-                                            <button onClick={handleCancel}>בטל</button>
+                                            <button type="button" className="btn btn-success" onClick={() => handleSave(project.id)}>שמור</button>
+                                            <button  type="button" className="btn btn-secondary" onClick={handleCancel}>בטל</button>
                                         </div>
                                     ) : (
                                         <>
-                                            <button onClick={() => setIsEditing(true)}> ערוך פרוייקט</button>
+                                            <button type="button" className="btn btn-secondary" onClick={() => setIsEditing(true)}> ערוך פרוייקט</button>
                                             {'    '}
 
-                                            <button onClick={() => handleDelete(project.id, project.imageUrl)}>מחק פרוייקט</button> {/* Add delete button */}
+                                            <button  type="button" className="btn btn-danger" onClick={() => handleDelete(project.id, project.imageUrl)}>מחק פרוייקט</button> {/* Add delete button */}
                                         </>
                                     )}
                                 </>
@@ -218,9 +218,9 @@ function Projects() {
                 ))}
             </Carousel>
             {auth.currentUser && (
-                <>
+                <div className='newProject-container'>
                     {isEditing || isNewProject ? null : (
-                        <button onClick={() => setIsNewProject(true)}>הוסף פרוייקט חדש</button>
+                        <button  id='createnewprojectbutton' type="button" className="btn btn-success" onClick={() => setIsNewProject(true)}>הוסף פרוייקט חדש</button>
                     )}
                     {isNewProject && (
                         <>
@@ -253,11 +253,13 @@ function Projects() {
                                 <span id="uploadPercentage">0%</span>
                                 <progress id="uploadProgress" value="0" max="100"></progress>
                             </div>
-                            <button onClick={() => handleSave()}>שמור פרוייקט חדש</button>
-                            <button onClick={() => setIsNewProject(false)}>ביטול</button>
+                            <div className='newproject-buttons-container'>
+                            <button  type="button" className="btn btn-success" onClick={() => handleSave()}>שמור פרוייקט חדש</button>
+                            <button  type="button" className="btn btn-secondary" onClick={() => setIsNewProject(false)}>ביטול</button>
+                            </div>
                         </>
                     )}
-                </>
+                </div>
 
             )}
         </div>
