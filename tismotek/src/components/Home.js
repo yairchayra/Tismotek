@@ -6,6 +6,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import YouTube from 'react-youtube';
 import './Home.css';
 import  HorizontalCard from './HorizontalCard'
+import Articles from './Articles';
 
 function Home() {
   const [topData, setTopData] = useState(null);
@@ -434,6 +435,7 @@ function Home() {
             {auth.currentUser && <button   type="button" className="btn btn-secondary" onClick={handleEditMagazine}>ערוך</button>}
           </div>
         )}
+        <Articles/>
       </div>
 
       <HorizontalCard/>
