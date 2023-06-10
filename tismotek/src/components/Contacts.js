@@ -4,7 +4,7 @@ import { doc, getDoc,updateDoc } from 'firebase/firestore';
 import { db,auth } from '../firebase';
 import { BiEnvelope, BiPhone, BiGlobe } from 'react-icons/bi';
 import emailjs from 'emailjs-com';
-emailjs.init('CAfLe4anS8INvMHrB');
+emailjs.init('c0xAxLDDn7xvb73Qn');
 
 function Contacts() {
     const [contactData, setContactData] = useState(null);

@@ -63,7 +63,7 @@ function LogoEdit() {
 
   return (
     <div className="LogoEdit">
-      <button  className="btn btn-info" type="button" onClick={() => document.getElementById('logoInput').click()}>
+      <button  className="btn" style={{ backgroundColor: '#1E3A8A', color: '#fff' }} type="button" onClick={() => document.getElementById('logoInput').click()}>
         החלף לוגו
       </button>
       <input id="logoInput" type="file" accept="image/png, image/jpeg" onChange={handleImageFileChange} style={{ display: 'none' }} />

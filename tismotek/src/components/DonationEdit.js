@@ -40,7 +40,7 @@ function DonationEdit() {
   return (
     <div className="DonationEdit">
       {!isEditing ? (
-        <button type="button" className="btn btn-info" onClick={handleEdit}>
+        <button  type="button" className="btn" style={{ backgroundColor: '#1E3A8A', color: '#fff' }} onClick={handleEdit}>
           ערוך קישור לאתר התרומות
         </button>
       ) : (
