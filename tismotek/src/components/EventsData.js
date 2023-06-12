@@ -6,6 +6,7 @@ import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebas
 import { Table, Button } from 'react-bootstrap';
 import './EventsData.css'
 import { Chart } from 'react-google-charts';
+import EventList from './EventList';
 
 
 function EventsData() {
@@ -186,6 +187,7 @@ function EventsData() {
 />
 
     </div>
+    <EventList/>
   </div>
 );
 }
