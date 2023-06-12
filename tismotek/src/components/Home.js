@@ -323,7 +323,7 @@ function Home() {
                 width: '100%',
                 height: '280',
                 playerVars: {
-                    origin: 'https://localhost:3000', // Set the origin to your application's URL
+                    origin: 'https://tismotek.org/', // Set the origin to your application's URL
                   }
               }}/>
                 )}

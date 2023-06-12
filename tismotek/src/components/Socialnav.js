@@ -132,11 +132,12 @@ function Socialnav() {
             value={instagramLink}
             onChange={(e) => setInstagramLink(e.target.value)}
           />
-          <button className="btn btn-primary" onClick={handleSave.bind(null, 'facebook')}>
-            Save
-          </button>
+
           <button className="btn btn-secondary" onClick={handleCancel}>
-            Cancel
+            בטל
+          </button>
+          <button className="btn btn-success" onClick={handleSave.bind(null, 'facebook')}>
+            שמור
           </button>
         </>
       ) : (

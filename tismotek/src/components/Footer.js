@@ -22,7 +22,7 @@ function Footer() {
     <footer className="footer">
       <div className="user-container">
         {auth.currentUser ? (
-          <button type="button" className="btn btn-primary" onClick={handleLogout}>התנתק</button>
+          <button type="button" className=" btn btn-danger" onClick={handleLogout}>התנתק</button>
         ) : (
           <CustomLink to="/login">התחברות</CustomLink>
         )}

@@ -40,6 +40,13 @@
   text-decoration: none;
   color: black;
 }
+li.active a{
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #ffa559;
+}
 
 a:hover {
   color: #ffa559;
