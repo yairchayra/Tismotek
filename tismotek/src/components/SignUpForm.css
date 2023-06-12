@@ -1,3 +1,37 @@
 .afterSignUp{
     text-align: right;
+    flex-direction: column;
+    width: 50%;
+    margin: 20px;
+
 }
+.signup-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+
+    border-radius: 4px;
+}
+.signup-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFA559;
+}
+.required-indicator{
+    color: red;
+}
+.blank-row {
+    height: 10px;
+  }
+  .signup-header{
+    color:#2c2f66;
+    display: flex;
+   justify-content: center;
+  }
+  #submit-signup{
+    display: flex;
+ justify-content: center;
+  }

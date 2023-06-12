@@ -294,7 +294,9 @@ function Home() {
             {topData?.text}
           </h5>
           </div>
+          <div className='top-section-button'>
           {auth.currentUser && <button  type="button" className="btn btn-secondary" onClick={handleEditTop}>ערוך</button>}
+          </div>
         </div>
         )}
       </div>
@@ -326,7 +328,7 @@ function Home() {
               }}/>
                 )}
                 </div>
-                <div className="edit-container">
+                <div className="event-projects-youtube-edit-button">
               {auth.currentUser && <button   type="button" className="btn btn-secondary" onClick={handleEditYouTube}>ערוך</button>}
               </div>
             </div>
@@ -364,7 +366,9 @@ function Home() {
                   </div>
                 </Link>
               )}
+              <div className='event-projects-youtube-edit-button'>
               {auth.currentUser && <button  type="button" className="btn btn-secondary" onClick={handleEditEvents}>ערוך</button>}
+              </div>
             </div>
           )}
         </div>
@@ -399,7 +403,9 @@ function Home() {
                   </div>
                 </Link>
               )}
+              <div className='event-projects-youtube-edit-button'>
               {auth.currentUser && <button  type="button" className="btn btn-secondary" onClick={handleEditProjects}>ערוך</button>}
+              </div>
             </div>
           )}
         </div>

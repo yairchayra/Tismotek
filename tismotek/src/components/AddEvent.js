@@ -122,46 +122,53 @@ function AddEvent() {
 
     return (
         <div className='addevent-container'>
+            <div className='addevent-form'>
             <h1>הוסף פעילות</h1>
             <form className='form-control'>
-                <div>
+            <span >שדה חובה</span>
+          <span className="required-indicator">*</span>
+          <div className="blank-row"></div>
+                <div className="form-group">
+                <label>:כותרת <span className="required-indicator">*</span></label>
+                    <input required className="form-control" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
 
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-                    <label>:כותרת</label>
                 </div>
                 <div>
+                <label>:מיקום</label>
+                    <input  className="form-control" type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
 
-                    <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
-                    <label>:מיקום</label>
+                </div>
+                <div className="form-group">
+                <label>:תאריך <span className="required-indicator">*</span></label>
+                    <input required className="form-control" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
+
+                </div>
+                <div className="form-group">
+                <label>:תיאור</label>
+                    <textarea  className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
+
                 </div>
                 <div>
+                <label>:מספר משתתפים מרבי <span className="required-indicator">*</span></label>
+                    <input required className="form-control" type="number" min={0} value={mnop} onChange={(e) => setMnop(e.target.value)} />
+                    <small id="mnopHelp" class="form-text text-muted">גם אם אין מגבלה על כמות הנרשמים נא לבחור מספר גבוה,אם תרצו להוסיף פעילות אך לא להתחיל הרשמה בחרו 0 ותשנו בהמשך </small>
 
-                    <input type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
-                    <label>:תאריך</label>
+
                 </div>
-                <div>
+                <div className="form-group">
+                <label>:קובץ</label>
+                    <input className="form-control"  type="file" onChange={handleFileChange} />
 
-                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-                    <label>:תיאור</label>
-                </div>
-                <div>
-
-                    <input type="number" min={0} value={mnop} onChange={(e) => setMnop(e.target.value)} />
-                    <label>:מספר משתתפים מרבי</label>
-                </div>
-                <div>
-
-                    <input type="file" onChange={handleFileChange} />
-                    <label>:קובץ</label>
                     {uploadProgress > 0 && <p>Upload progress: {uploadProgress.toFixed(2)}%</p>}
                 </div>
-                <div>
-                    <button type="button" onClick={handleUpload}>
+                <div id="submit-addevent">
+                    <button  className="btn btn-primary" type="button" onClick={handleUpload}>
                         צור פעילות
                     </button>
                 </div>
 
             </form>
+        </div>
         </div>
     );
 }

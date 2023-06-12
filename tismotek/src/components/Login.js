@@ -1,6 +1,6 @@
 import './Login.css'
 import React, { useState } from "react";
-import {  Link,useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
@@ -29,12 +29,6 @@ const Login = () => {
   return (
     <>
       <div className="p-4 box">
-      <div className="logo-container">
-            <Link to="/">
-            <img src='https://firebasestorage.googleapis.com/v0/b/tismotek-jce-23.appspot.com/o/logos%2Flogo.png?alt=media&token=7e40d507-1ba8-4ddb-9e75-4f172df2f5d0' alt="Logo" title='דף הבית' />
-            </Link>
-            </div>
-
         <h2 className="Auth-form-title">כניסת מערכת</h2>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit} className='Auth-form'>
@@ -55,7 +49,7 @@ const Login = () => {
           </Form.Group>
 
           <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit" className="btn">
+            <Button  id='login-button' variant="primary" type="Submit" className="btn">
               התחבר
             </Button>
           </div>

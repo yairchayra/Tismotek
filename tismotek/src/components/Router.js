@@ -59,6 +59,7 @@ function Router() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/events" element={<Events />} />
             <Route path="/contacts" element={<Contacts />} />
+            <Route path="/login" element={<Login />} />
             <Route
               exact
               path="/events/signup/:eventId"
@@ -71,7 +72,6 @@ function Router() {
             <Route path="/dashboard/socialData" element={<SocialData />} />
             <Route path="/dashboard/eventsData" element={<EventsData />} />
           </Route>
-          <Route path="/login" element={<Login />} />
         </Routes>
       </UserAuthContextProvider>
     </div>

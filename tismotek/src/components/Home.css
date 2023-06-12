@@ -22,7 +22,8 @@
   }
   .top-section{
     overflow: hidden;
-    display: 'flex';
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width : 90%;
@@ -53,7 +54,13 @@
   .top-section-text h5 {
     margin: 0;
   }
+  .top-section-button{
 
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
   .events-projects-section {
     display: flex;
     justify-content: center;
@@ -67,7 +74,10 @@
     width: 100%;
     height: 100%;
   }
-
+  .event-projects-youtube-edit-button{
+    display: flex;
+    justify-content: flex-end;
+  }
   .events-section,
   .projects-section {
     flex-basis: 30%;

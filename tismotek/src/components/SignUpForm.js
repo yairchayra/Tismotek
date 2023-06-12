@@ -10,6 +10,8 @@ function SignUpForm({ selectedEvent }) {
   const { eventId } = useParams();
   const [submittedName, setSubmittedName] = useState('');
   const [eventData, setEventData] = useState(null);
+  const [validationError, setValidationError] = useState('');
+
 
   useEffect(() => {
     const eventRef = doc(db, 'events', eventId);
@@ -24,7 +26,6 @@ function SignUpForm({ selectedEvent }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     // Form input values
     const fullName = event.target.fullName.value;
     const phoneNumber = event.target.phoneNumber.value;
@@ -38,6 +39,12 @@ function SignUpForm({ selectedEvent }) {
       return;
     }
 
+    // Validate phone number format
+    const phoneRegex = /^05[0-9]\d{7}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+      setValidationError('מספר טלפון לא תקין אנא נסה שנית');
+      return;
+    }
     const participantData = {
       fullName,
       phoneNumber,
@@ -56,45 +63,55 @@ function SignUpForm({ selectedEvent }) {
   };
 
   return (
+    <div className='signup-container'>
     <div className='afterSignUp'>
-      <h2>טופס הרשמה</h2>
+      <h2 className='signup-header'>טופס הרשמה</h2>
       {submittedName && (
-        <div>
+        <div className='signup-message'>
           !{submittedName},תודה רבה על הרשמתך
           <br />
-         .מחכים לראותכם בפעילות
+         .מחכים לראותך בפעילות
         </div>
       )}
       {!submittedName && eventData && (
         <form onSubmit={handleSubmit} className="form-control">
-          <div>
+          <span >שדה חובה</span>
+          <span className="required-indicator">*</span>
+          <div className="blank-row"></div>
+          <div className="form-group">
+          <label>:שם מלא<span className="required-indicator">*</span></label>
+            <input  className="form-control" type="text" name="fullName" required />
+          </div>
+          <div className="form-group" >
+          <label>:מספר טלפון<span className="required-indicator">*</span></label>
+            <input  className="form-control" type="tel" name="phoneNumber" required />
 
-            <input type="text" name="fullName" required />
-            <label>:שם מלא</label>
+          </div>
+          <div className="form-group">
+          <label>:כתובת<span className="required-indicator">*</span></label>
+            <input  className="form-control" type="text" name="address" required />
+
+          </div>
+          <div className="form-group">
+          <label>:כתובת אימייל</label>
+            <input  className="form-control" type="email" name="email" placeholder="name@example.com"  />
+            <small id="emailHelp" class="form-text text-muted">נשמח לקבל את כתובת האימייל בכדי לעדכן במידה ויהיו שינויים בפעילות</small>
           </div>
           <div>
+          <label>:מספר משתתפים<span className="required-indicator">*</span></label>
+            <input  className="form-control" type="number" name="numberOfParticipants"  min={1} required  />
 
-            <input type="tel" name="phoneNumber" required />
-            <label>:מספר טלפון</label>
           </div>
-          <div>
-
-            <input type="text" name="address" required />
-            <label>:כתובת</label>
+           {/* Phone number validation error */}
+           {validationError && (
+            <div className="error">{validationError}</div>
+          )}
+          <div id='submit-signup'>
+          <button  className="btn btn-primary"  type="submit">הגש</button>
           </div>
-          <div>
-
-            <input type="email" name="email"  />
-            <label>:כתובת אימייל</label>
-          </div>
-          <div>
-
-            <input type="number" name="numberOfParticipants"  min={1} required  />
-            <label>:מספר משתתפים</label>
-          </div>
-          <button  type="submit">הגש</button>
         </form>
       )}
+    </div>
     </div>
   );
 }

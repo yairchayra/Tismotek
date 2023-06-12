@@ -37,6 +37,10 @@ function Events() {
 
   const handleSave = async () => {
     try {
+      if (parseInt(editingEvent.mnop, 10) < editingEvent.nop) {
+        alert("מספר המשתמשים המקסימלי קטן ממספר המשתמשים הרשומים");
+        return;
+      }
       const eventRef = doc(db, 'events', editingEvent.id);
       await updateDoc(eventRef, {
         title: editingEvent.title,
@@ -111,8 +115,10 @@ function Events() {
           const storageRef = ref(storage, event.excelUrl);
           await deleteObject(storageRef);
         }
-        const storageRef = ref(storage, event.fileUrl);
-        await deleteObject(storageRef);
+        if (event.fileUrl && event.fileUrl !== '') {
+          const storageRef = ref(storage, event.fileUrl);
+          await deleteObject(storageRef);
+        }
         const eventRef = doc(db, 'events', event.id);
         await deleteDoc(eventRef);
         // Remove the deleted event from the state
@@ -136,7 +142,7 @@ function Events() {
       <h1>פעילויות</h1>
       {auth.currentUser && (
         <div>
-          <button id='addeventbutton'  className="btn btn-success" onClick={handleAddEvent}>הוסף פעילות</button>
+          <button id='addeventbutton' className="btn btn-success" onClick={handleAddEvent}>הוסף פעילות</button>
         </div>
       )}
       <table className="table">
@@ -175,11 +181,11 @@ function Events() {
                           ערוך פעילות
                         </button>
                         <button className="btn btn-danger" onClick={() => handleDelete(event)}>
-                        מחק פעילות
+                          מחק פעילות
                         </button>
                       </>
                     ) : (
-                      <button
+                      <button id='SignUp-Button'
                         className="btn btn-primary"
                         onClick={() => handleSignUp(event)}
                         disabled={event.nop === event.mnop}

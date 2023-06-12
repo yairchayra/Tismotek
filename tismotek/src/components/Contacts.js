@@ -33,6 +33,14 @@ function Contacts() {
 
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
+        // Regular expression to validate email format
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            // Invalid email address
+            alert("כתובת אימייל לא תקינה, אנא נסה שנית");
+            return;
+        }
         var message = document.getElementById("message").value;
 
         const serviceID = "ofriab";
@@ -72,6 +80,24 @@ function Contacts() {
 
       const updateContactData = async () => {
         try {
+          if(editedContactData.phone&&editedContactData.phone!==''){
+
+          const mobilePhoneRegex = /^05[0-9]\d{7}$/;
+          const homePhoneRegex = /^0[1-9]\d{7}$/;
+          if (!mobilePhoneRegex.test(editedContactData.phone)&&!homePhoneRegex.test(editedContactData.phone)) {
+              alert('מספר טלפון לא תקין אנא נסה שנית',editedContactData.phone);
+              return;
+          }
+        }
+        if(editedContactData.mail&&editedContactData.mail!==''){
+           // Regular expression to validate email format
+           var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+           if (!emailRegex.test(editedContactData.mail)) {
+               // Invalid email address
+               alert("כתובת אימייל לא תקינה, אנא נסה שנית");
+               return;
+           }
+          }
           const docRef = doc(db, 'contacts', 'info');
           await updateDoc(docRef, editedContactData);
           setContactData(editedContactData);
@@ -100,7 +126,7 @@ function Contacts() {
                   <BiPhone />
                 </div>
                 <div>
-                  {contactData.phone}
+                  {`${contactData.phone}`}
                 </div>
                 <div className='info-text'>
                   {contactData.text}
@@ -111,15 +137,16 @@ function Contacts() {
               <div>
                 {/* Render the editable fields */}
                 <input
-                  type="text"
+                  type="email"
                   className='form-control'
                   value={editedContactData.mail}
-                  onChange={(e) =>
+                  onChange={(e) =>{
+
                     setEditedContactData({
                       ...editedContactData,
                       mail: e.target.value
                     })
-                  }
+                  }}
                 />
 
                  <input
@@ -137,12 +164,13 @@ function Contacts() {
                   type="text"
                   className='form-control'
                   value={editedContactData.phone}
-                  onChange={(e) =>
+                  onChange={(e) =>{
                     setEditedContactData({
                       ...editedContactData,
                       phone: e.target.value
                     })
                   }
+                }
                 />
                  <input
                   type="text"
