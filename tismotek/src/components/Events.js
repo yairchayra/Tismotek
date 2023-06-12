@@ -165,7 +165,7 @@ function Events() {
                 {editingEvent && editingEvent.id === event.id ? (
                   // Edit mode
                   <div>
-                    <button className="btn btn-primary" onClick={handleSave}>
+                    <button className="btn btn-success" onClick={handleSave}>
                       שמור
                     </button>
                     <button className="btn btn-secondary" onClick={handleCancel}>

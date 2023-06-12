@@ -5,6 +5,27 @@
   position: relative;
   min-height: 100vh;
 }
+.btn-primary{
+  color: white!important;
+  background-color:#2c2f66 !important;
+  border-color: #2c2f66 !important;
+}
+.btn-secondary{
+  color: white!important;
+}
+.btn-success{
+  color: white !important;
+}
+.btn-danger{
+  color: white !important;
+}
+.btn-primary:hover{
+  color: #FFA559!important;
+}
+.btn-secondary:hover{
+  color: #FFA559!important;
+}
+
 @media (max-width: 768px) {
   .App {
    margin:0;

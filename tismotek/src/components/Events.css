@@ -8,6 +8,7 @@
 #SignUp-Button{
   color: white;
 }
+
 @media (max-width: 768px) {
     .events-container{
         width: 100%;

@@ -33,12 +33,14 @@ function NewsLetterMessage() {
             document.getElementById('subject').value = '';
             document.getElementById('message').value = '';
             console.log(response);
-            alert('הודעתך נשלחה בהצלחה');
+
           })
           .catch((error) => {
             console.error('Email sending error:', error);
           });
+
       });
+      alert('הודעתך נשלחה בהצלחה');
 
     }
 
