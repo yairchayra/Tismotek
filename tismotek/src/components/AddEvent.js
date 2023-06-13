@@ -129,14 +129,15 @@ function AddEvent() {
           <span className="required-indicator">*</span>
           <div className="blank-row"></div>
           <div className="row">
-                <div className="col">
-                <label>:כותרת <span className="required-indicator">*</span></label>
-                    <input required className="form-control" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
 
-                </div>
                 <div className="col">
                 <label>:מיקום</label>
                     <input  className="form-control" type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
+
+                </div>
+                <div className="col">
+                <label>:כותרת <span className="required-indicator">*</span></label>
+                    <input required className="form-control" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
 
                 </div>
                 </div>
