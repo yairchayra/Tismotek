@@ -1,7 +1,7 @@
 .afterSignUp{
     text-align: right;
     flex-direction: column;
-    width: 50%;
+    width: 70%;
     margin: 20px;
 
 }
@@ -34,4 +34,15 @@
   #submit-signup{
     display: flex;
  justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .afterSignUp{
+        text-align: right;
+        flex-direction: column;
+        width: 80%;
+        margin: 20px;
+
+    }
+
+
   }

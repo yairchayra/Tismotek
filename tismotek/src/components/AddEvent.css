@@ -6,7 +6,7 @@
     background-color: #FFA559;
 }
 .addevent-form{
-    width: 50%;
+    width: 70%;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -22,4 +22,16 @@
   #submit-addevent{
     display: flex;
     justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .addevent-form{
+        width: 80%;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+
+
   }

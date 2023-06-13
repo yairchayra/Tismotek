@@ -78,29 +78,35 @@ function SignUpForm({ selectedEvent }) {
           <span >שדה חובה</span>
           <span className="required-indicator">*</span>
           <div className="blank-row"></div>
-          <div className="form-group">
+          <div className="row">
+          <div className="col">
           <label>:שם מלא<span className="required-indicator">*</span></label>
             <input  className="form-control" type="text" name="fullName" required />
           </div>
-          <div className="form-group" >
+          <div className="col" >
           <label>:מספר טלפון<span className="required-indicator">*</span></label>
             <input  className="form-control" type="tel" name="phoneNumber" required />
 
           </div>
-          <div className="form-group">
+          </div>
+          <div className="row">
+          <div className="col">
           <label>:כתובת<span className="required-indicator">*</span></label>
             <input  className="form-control" type="text" name="address" required />
 
           </div>
-          <div className="form-group">
+          <div className="col">
           <label>:כתובת אימייל</label>
             <input  className="form-control" type="email" name="email" placeholder="name@example.com"  />
-            <small id="emailHelp" class="form-text text-muted">נשמח לקבל את כתובת האימייל בכדי לעדכן במידה ויהיו שינויים בפעילות</small>
+            <small id="emailHelp" className="form-text text-muted">נשמח לקבל את כתובת האימייל בכדי לעדכן במידה ויהיו שינויים בפעילות</small>
           </div>
-          <div>
+          </div>
+          <div className="row">
+          <div className='col'>
           <label>:מספר משתתפים<span className="required-indicator">*</span></label>
             <input  className="form-control" type="number" name="numberOfParticipants"  min={1} required  />
 
+          </div>
           </div>
            {/* Phone number validation error */}
            {validationError && (
