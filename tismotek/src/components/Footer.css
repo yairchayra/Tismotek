@@ -15,11 +15,7 @@
     color: #FFA559;
 }
 .subscribe-container-footer{
-    width:30%;
-    height: auto;
     color: #2c2f66;
-
-
 }
 .footer-right-container{
     display: flex;
@@ -79,4 +75,11 @@
       .pages-footer{
         margin-bottom: 20px;
       }
+      .subscribe-container-footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        color: #2c2f66;
+    }
 }
