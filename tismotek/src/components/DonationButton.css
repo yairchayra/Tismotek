@@ -1,6 +1,6 @@
 #donation-b {
-    background-color: #2c2f66;
-    border-color: #2c2f66;
+    background-color: #1E3A8A;
+    border-color: #1E3A8A;
 
 }
 #donation-b a{
@@ -8,7 +8,7 @@
 }
 #donation-b:hover {
     background-color: #FFFAF4;
-    border-color: #2c2f66;
+    border-color: #1E3A8A;
 }
 #donation-b:hover  a{
    color: black!important

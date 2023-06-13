@@ -359,10 +359,10 @@ function Home() {
           ) : (
             <div>
               {eventsData && (
-                <Link to="/events" className="card">
+                <Link to="/events" className="card"  id="middle">
                   <img className="card-img-top" src={eventsData.imageUrl} alt="Card cap" />
                   <div className="card-body">
-                    <p className="card-text">{eventsData.text}</p>
+                    <p className="card-text" id="middle">{eventsData.text}</p>
                   </div>
                 </Link>
               )}
@@ -396,10 +396,10 @@ function Home() {
           ) : (
             <div>
               {projectsData && (
-                <Link to="/projects" className="card">
+                <Link to="/projects" className="card"  id="middle">
                   <img className="card-img-top" src={projectsData.imageUrl} alt="Card cap" />
                   <div className="card-body">
-                    <p className="card-text">{projectsData.text}</p>
+                    <p className="card-text" id="middle">{projectsData.text}</p>
                   </div>
                 </Link>
               )}

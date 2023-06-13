@@ -40,7 +40,7 @@ const SideBar = () => {
           </ul>
         </div>
         <div className="logout-con">
-          <Button variant="primary" onClick={handleLogout}>
+          <Button variant="danger" onClick={handleLogout}>
             התנתק
           </Button>
         </div>

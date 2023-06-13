@@ -24,9 +24,7 @@ function Subscribe() {
     }
 
     return (
-        <div className="container border mt-3 bg-light" id="container">
-
-            <div className="col -md-3 py-3" style={{ textAlign: 'right' }}>
+        <div className="subscribe-container">
                 <h5>הצטרפות לרשימת התפוצה</h5>
                 <div className="form-group">
                     {/* <h5 htmlFor="email">:כתובת אימייל</h5> */}
@@ -38,8 +36,6 @@ function Subscribe() {
                     />
                 </div>
                 <button className="btn" onClick={joinNewsletter} style={{ backgroundColor: "#1E3A8A", color: "#fff" }}>להצטרפות</button>
-
-            </div>
         </div>
 
     )

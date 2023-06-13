@@ -106,9 +106,19 @@
     margin-bottom: 5px;
   }
 
-  .card-text {
+  .card-text#middle{
     font-size: 14px;
+
+    color: #1E3A8A;
   }
+  .card#middle{
+    text-decoration: none!important;
+  }
+  .card-text#middle:hover{
+    color:#FFA559;
+
+  }
+
 
   .button-container {
     display: flex;
@@ -140,13 +150,14 @@
   }
   .magazine-section button#magazine {
     width: 500px;
-    background-color: #FFA559;
-    border-color:#FFA559 ;
+    background-color: #FFA559!important;
+    border-color:#FFA559 !important;
   }
   .magazine-section button#magazine:hover{
     width: 550px;
-    background-color: #fdb375;
-    border-color: #FFA559;
+    background-color: #fdb375!important;
+    border-color: #FFA559!important;
+    color: white!important;
   }
   @media (max-width: 768px) {
 
