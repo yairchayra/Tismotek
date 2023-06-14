@@ -154,7 +154,8 @@ function Projects() {
 
     return (
         <div className="projects">
-            <Carousel interval={auth.currentUser ? null : 9000}>
+
+            <Carousel className='carousel-container carousel-fade' interval={auth.currentUser ? null : 9000}>
                 {projectData.map((project, index) => (
                     <Carousel.Item key={index}>
                         <img className="d-block w-100" src={project.imageUrl} alt={`Slide ${index + 1}`} />
