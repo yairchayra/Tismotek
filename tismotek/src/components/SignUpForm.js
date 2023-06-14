@@ -92,23 +92,25 @@ function SignUpForm({ selectedEvent }) {
           </div>
           <div className="row">
           <div className="col">
-          <label>:כתובת<span className="required-indicator">*</span></label>
-            <input  className="form-control" type="text" name="address" required />
-
-          </div>
-          <div className="col">
-          <label>:כתובת אימייל</label>
-            <input  className="form-control" type="email" name="email" placeholder="name@example.com"  />
-          </div>
-          </div>
-          <div className="row">
-          <small id="emailHelp" className="form-text text-muted">נשמח לקבל את כתובת האימייל בכדי לעדכן במידה ויהיו שינויים בפעילות</small>
-          </div>
-          <div className="row" >
-          <div className='col'>
           <label>:מספר משתתפים<span className="required-indicator">*</span></label>
             <input className="form-control" type="number" name="numberOfParticipants"  min={1} required  />
 
+          </div>
+          <div className="col">
+
+            <label>:כתובת<span className="required-indicator">*</span></label>
+            <input  className="form-control" type="text" name="address" required />
+          </div>
+          </div>
+
+          <div className="row" >
+          <div className='col'>
+          <label>:כתובת אימייל</label>
+            <input  className="form-control" type="email" name="email" placeholder="name@example.com"  />
+
+          </div>
+          <div className="row">
+          <small id="emailHelp" className="form-text text-muted">נשמח לקבל את כתובת האימייל בכדי לעדכן במידה ויהיו שינויים בפעילות</small>
           </div>
           </div>
            {/* Phone number validation error */}
