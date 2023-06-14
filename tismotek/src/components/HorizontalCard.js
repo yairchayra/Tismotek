@@ -128,12 +128,12 @@ const HorizontalCard = () => {
                     <>
                         <Card.Title>{title}</Card.Title>
                         <Card.Text className={expanded ? 'expanded' : ''}>
-                            {expanded ? text : text.slice(0, text.length / 2)}
+                            {expanded ? text : text.slice(0, text.length / 4)}
                         </Card.Text>
-                        <Card.Subtitle className={expanded ? 'expanded' : ''}>{expanded ? subtitle : ''}</Card.Subtitle>
+                        <Card.Subtitle id='card-subtitle' className={expanded ? 'expanded' : ''}>{expanded ? subtitle : ''}</Card.Subtitle>
                         {!expanded && (
                                 <div className='toExpand'>
-                                    <Button variant="link" onClick={handleExpand}>
+                                    <Button  variant="link" onClick={handleExpand}>
                                         להמשך המכתב לחץ כאן
                                     </Button>
                                 </div>
