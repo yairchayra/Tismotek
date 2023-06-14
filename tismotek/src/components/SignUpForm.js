@@ -116,7 +116,7 @@ function SignUpForm({ selectedEvent }) {
             <div className="error">{validationError}</div>
           )}
           <div id='submit-signup'>
-          <button  className="btn btn-primary"  type="submit">הגש</button>
+          <button  className="btn btn-primary"  type="submit">הרשם</button>
           </div>
         </form>
       )}

@@ -20,8 +20,8 @@
   }
 
   .horizontal-card-image img {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
 
   .horizontal-card-body {
@@ -32,6 +32,13 @@
     white-space: normal;
     overflow: visible;
     height: auto;
+  }
+  .toExpand button:hover{
+    color: #FFA559;
+  }
+  .card-subtitle{
+color: black;
+font-weight: bold;
   }
   @media (max-width: 768px) {
 
