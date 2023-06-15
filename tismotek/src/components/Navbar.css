@@ -90,6 +90,8 @@ a:hover {
 
   .nav-links.mobile-open {
     display: flex;
+
+    z-index: 2;
   }
 
   .nav-links li {
