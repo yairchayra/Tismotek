@@ -69,8 +69,8 @@ function Router() {
           </Route>
           <Route path="/dashboard" element={<Adminlayout />}>
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-            <Route path="/dashboard/socialData" element={<SocialData />} />
-            <Route path="/dashboard/eventsData" element={<EventsData />} />
+            <Route path="/dashboard/socialData" element={<ProtectedRoute><SocialData /></ProtectedRoute>} />
+            <Route path="/dashboard/eventsData" element={<ProtectedRoute><EventsData /></ProtectedRoute>} />
           </Route>
         </Routes>
       </UserAuthContextProvider>
