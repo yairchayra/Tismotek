@@ -105,13 +105,11 @@ function SignUpForm({ selectedEvent }) {
 
           <div className="row" >
           <div className='col'>
-          <label>:כתובת אימייל</label>
-            <input  className="form-control" type="email" name="email" placeholder="name@example.com"  />
+          <label>:כתובת אימייל<span className="required-indicator">*</span></label>
+            <input  className="form-control" type="email" name="email" placeholder="name@example.com"  required />
 
           </div>
-          <div className="row">
-          <small id="emailHelp" className="form-text text-muted">נשמח לקבל את כתובת האימייל בכדי לעדכן במידה ויהיו שינויים בפעילות</small>
-          </div>
+
           </div>
            {/* Phone number validation error */}
            {validationError && (

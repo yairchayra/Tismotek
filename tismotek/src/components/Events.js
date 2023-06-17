@@ -107,8 +107,22 @@ function Events() {
       );
     }
   };
+  const handleFileDelete=async(event)=>{
+    const shouldDelete = window.confirm('אתה בטוח שתרצה למחוק את הקובץ?');
+    if (shouldDelete) {
+      try {
+        const storageRef = ref(storage, event.fileUrl);
+         await deleteObject(storageRef);
+         const updatedEvent = { ...editingEvent, fileUrl: '' };
+         setEditingEvent(updatedEvent);
+      } catch (error) {
+        console.error('Error deleting event:', error);
+      }
+    }
+  };
+
   const handleDelete = async (event) => {
-    const shouldDelete = window.confirm('Are you sure you want to delete this project?');
+    const shouldDelete = window.confirm('אתה בטוח שתרצה למחוק את הפעילות?');
     if (shouldDelete) {
       try {
         if (event.excelUrl && event.excelUrl !== '') {
@@ -202,12 +216,17 @@ function Events() {
                     <input type="file" onChange={handleFileChange} />
                     {selectedFile && (
                       <div>
-                        Uploading: ({uploadProgress.toFixed(2)}%)
+                        מעלה: ({uploadProgress.toFixed(2)}%)
                       </div>
                     )}
                     <button className="btn btn-primary" onClick={handleUpload}>
                       עלה קובץ
                     </button>
+                    {event.fileUrl && event.fileUrl !== ''&&
+                    <button className="btn btn-danger" onClick={() =>handleFileDelete(event)}>
+                      מחק קובץ
+                    </button>
+                    }
                   </div>
                 ) : (
                   <>

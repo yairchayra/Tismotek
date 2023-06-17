@@ -39,7 +39,7 @@ function NewsletterExport() {
 
   return (
     <div>
-      <button className='btn btn-primary 'onClick={handleExportClick} style={{ marginTop: '20px' }}>ייצא רשימת תפוצה</button>
+      <button className='btn btn-primary 'onClick={handleExportClick} style={{ marginTop: '20px' }}>ייצא רשימת תפוצה לקובץ אקסל</button>
     </div>
   );
 }
