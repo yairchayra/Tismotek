@@ -1,10 +1,11 @@
 .horizontal-card {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
     text-align: right;
     width: 95%;
+    direction: rtl;
 }
 .toExpand {
     display: flex;

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    direction: rtl;
     flex-direction: column;
     text-align: center;
     background-color: white;

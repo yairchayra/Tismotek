@@ -202,7 +202,7 @@ function Contacts() {
           <div className="col -md-6 py-3">
             <h1>טופס יצירת קשר</h1>
             <div className="form-group">
-              <h5 htmlFor="name">:שם</h5>
+              <h5 htmlFor="name">שם:</h5>
               <input
                 type="text"
                 className="form-control"
@@ -211,7 +211,7 @@ function Contacts() {
               />
             </div>
             <div className="form-group">
-              <h5 htmlFor="email">:כתובת מייל</h5>
+              <h5 htmlFor="email">כתובת מייל:</h5>
               <input
                 type="text"
                 className="form-control"
@@ -220,7 +220,7 @@ function Contacts() {
               />
             </div>
             <div className="form-group">
-              <h5 htmlFor="message">:הודעה</h5>
+              <h5 htmlFor="message">הודעה:</h5>
               <textarea id="message" rows="3" className="form-control"></textarea>
             </div>
             <button className="btn" onClick={sendMail} style={{ backgroundColor: "#1E3A8A", color: "#fff" }}>שלח</button>

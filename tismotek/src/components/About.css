@@ -1,6 +1,7 @@
 .about {
     display: flex;
-
+    direction: rtl;
+    flex-direction: row-reverse;
   }
 
   .about__text {

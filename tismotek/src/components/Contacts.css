@@ -1,7 +1,8 @@
 .contact-container{
 display: flex;
-flex-direction: row;
+flex-direction: row-reverse;
 justify-content: flex-end;
+direction: rtl;
 }
 
 .col{
